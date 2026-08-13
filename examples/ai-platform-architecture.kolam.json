@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "family": "architecture",
+  "preset": "slide-16x9",
+  "title": "Kolam product architecture",
+  "subtitle": "Open acquisition surface, hosted correctness engine",
+  "data": {
+    "nodes": [
+      { "id": "agent", "label": "Agent client", "detail": "Claude · Codex · Cursor" },
+      { "id": "local", "label": "Kolam Local", "detail": "Private HTML and SVG", "focal": true },
+      { "id": "artifact", "label": "Source-editable artifact", "detail": "Spec · SVG · receipt" },
+      { "id": "mcp", "label": "Verified MCP", "detail": "Explicit network mode" },
+      { "id": "selector", "label": "Framework selector", "detail": "Visual grammar routing" },
+      { "id": "validator", "label": "Evidence validator", "detail": "Reject unsupported claims" },
+      { "id": "engines", "label": "Render engines", "detail": "Native + confirmed syntax" },
+      { "id": "viewer", "label": "Hosted viewer", "detail": "Payload · SVG · PNG" }
+    ],
+    "edges": [
+      { "from": "agent", "to": "local", "label": "default" },
+      { "from": "local", "to": "artifact" },
+      { "from": "agent", "to": "mcp", "label": "verified" },
+      { "from": "mcp", "to": "selector" },
+      { "from": "selector", "to": "validator" },
+      { "from": "validator", "to": "engines" },
+      { "from": "engines", "to": "viewer" }
+    ]
+  }
+}

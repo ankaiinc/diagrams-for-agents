@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "family": "timeline",
+  "preset": "social-square",
+  "title": "From private beta to public proof",
+  "subtitle": "Ship the acquisition loop in four visible moves",
+  "data": {
+    "items": [
+      { "date": "Week 1", "label": "Private plugin", "detail": "Ten design partners" },
+      { "date": "Week 2", "label": "Public benchmark", "detail": "Fifty messy prompts", "focal": true },
+      { "date": "Week 3", "label": "Community remixes", "detail": "Shareable artifacts" },
+      { "date": "Week 4", "label": "Verified conversion", "detail": "Measure repeat use" }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "kolam",
+  "displayName": "Kolam",
+  "version": "0.1.0",
+  "description": "Turn messy context into private source-editable diagrams, or use Verified Mode for framework selection and evidence validation.",
+  "author": {
+    "name": "Pragmatic Leaders Labs"
+  },
+  "homepage": "https://kolam.pragmaticleaders.io",
+  "repository": "https://github.com/ankaiinc/kolam-plugin",
+  "license": "MIT",
+  "logo": "./assets/kolam-mark.svg",
+  "keywords": ["diagrams", "visualization", "svg", "swot", "architecture", "grounding", "mcp"],
+  "category": "productivity",
+  "tags": ["diagrams", "strategy", "architecture", "visualization"],
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json"
+}

@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "family": "flow",
+  "preset": "doc-wide",
+  "title": "Evidence-first recommendation",
+  "subtitle": "A small operating loop for high-stakes advice",
+  "data": {
+    "nodes": [
+      { "id": "context", "label": "Collect context", "detail": "Facts, constraints, owner" },
+      { "id": "shape", "label": "Choose visual grammar", "detail": "Match the reader's decision", "focal": true },
+      { "id": "ground", "label": "Ground every claim", "detail": "Exact source evidence" },
+      { "id": "review", "label": "Human review", "detail": "Approve, correct, or reject" }
+    ],
+    "edges": [
+      { "from": "context", "to": "shape" },
+      { "from": "shape", "to": "ground" },
+      { "from": "ground", "to": "review", "label": "receipt" }
+    ]
+  }
+}

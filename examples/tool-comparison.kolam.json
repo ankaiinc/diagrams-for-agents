@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "family": "comparison",
+  "preset": "slide-16x9",
+  "title": "Choose the diagram path",
+  "subtitle": "The right tool depends on whether trust or speed is load-bearing",
+  "source": "Mermaid is already in the documentation build and is fastest for simple technical flows. Kolam Local keeps source material on the machine and emits editable HTML plus SVG. Kolam Verified chooses a business framework and requires evidence for named framework claims.",
+  "data": {
+    "columns": [
+      {
+        "title": "Mermaid",
+        "items": [
+          { "label": "Already in the docs build", "evidence": "Mermaid is already in the documentation build" },
+          { "label": "Fast for simple flows", "evidence": "fastest for simple technical flows" }
+        ]
+      },
+      {
+        "title": "Kolam Local",
+        "items": [
+          { "label": "Content stays local", "evidence": "keeps source material on the machine" },
+          { "label": "Editable HTML and SVG", "evidence": "emits editable HTML plus SVG" }
+        ]
+      },
+      {
+        "title": "Kolam Verified",
+        "focal": true,
+        "items": [
+          { "label": "Chooses the framework", "evidence": "chooses a business framework" },
+          { "label": "Evidence-gated claims", "evidence": "requires evidence for named framework claims" }
+        ]
+      }
+    ]
+  }
+}

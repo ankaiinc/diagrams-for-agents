@@ -1,0 +1,7 @@
+interface:
+  display_name: "Kolam"
+  short_description: "Turn messy context into grounded diagrams"
+  brand_color: "#10B4AB"
+  default_prompt: "Use $kolam to turn this context into the right private diagram."
+policy:
+  allow_implicit_invocation: true

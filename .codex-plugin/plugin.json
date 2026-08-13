@@ -1,0 +1,36 @@
+{
+  "name": "kolam",
+  "version": "0.1.0",
+  "description": "Turn messy business, product, and technical context into private source-editable diagrams, with an explicit Verified Mode for automatic framework selection and evidence validation.",
+  "author": {
+    "name": "Pragmatic Leaders Labs",
+    "url": "https://pragmaticleaders.io"
+  },
+  "homepage": "https://kolam.pragmaticleaders.io",
+  "repository": "https://github.com/ankaiinc/kolam-plugin",
+  "license": "MIT",
+  "keywords": ["diagrams", "visualization", "svg", "swot", "architecture", "grounding", "mcp"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Kolam",
+    "shortDescription": "Grounded diagrams from messy context.",
+    "longDescription": "Create private self-contained HTML/SVG diagrams locally, import Mermaid flows, apply brand tokens, or use Kolam Verified for automatic framework selection and server-side evidence validation.",
+    "developerName": "Pragmatic Leaders Labs",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://kolam.pragmaticleaders.io",
+    "defaultPrompt": [
+      "Turn this situation into the right private diagram.",
+      "Create a grounded SWOT without inventing claims.",
+      "Redraw this Mermaid flow as an editorial diagram."
+    ],
+    "brandColor": "#10B4AB",
+    "logo": "./assets/kolam-mark.svg",
+    "screenshots": [
+      "./assets/gallery/fintech-swot.png",
+      "./assets/gallery/priority-quadrant.png",
+      "./assets/gallery/ai-platform-architecture.png"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "kolam",
+  "owner": {
+    "name": "Pragmatic Leaders Labs"
+  },
+  "metadata": {
+    "description": "Private local diagrams with an explicit evidence-verified mode."
+  },
+  "plugins": [
+    {
+      "name": "kolam",
+      "source": ".",
+      "description": "Grounded diagrams from messy context."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "kolam",
+  "interface": {
+    "displayName": "Kolam"
+  },
+  "plugins": [
+    {
+      "name": "kolam",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

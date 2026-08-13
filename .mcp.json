@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "kolam-verified": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "https://kolam.pragmaticleaders.io/downloads/kolam-mcp-0.1.0.tgz"
+      ]
+    }
+  }
+}

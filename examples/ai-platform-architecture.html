@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kolam product architecture · Kolam</title>
+<style>html{background:#e9ecef}body{margin:0;padding:32px;font-family:Inter, Arial, sans-serif;color:#0b0b12}main{max-width:1600px;margin:auto}.canvas{background:#ffffff;border:1px solid #0002;box-shadow:0 20px 60px #0001}.canvas svg{display:block;width:100%;height:auto}details,.privacy{margin:18px 0 0;background:#ffffff;border:1px solid #0002;padding:14px 18px;font-size:14px}summary{cursor:pointer;font-weight:700}li{margin:12px 0}blockquote{margin:6px 0;color:#5f6470}footer{margin-top:12px;color:#60646c;font-size:12px}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}</style></head>
+<body><main><div class="canvas"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="kolam-title kolam-desc" viewBox="0 0 1600 900" width="1600" height="900" data-kolam-family="architecture">
+  <title id="kolam-title">Kolam product architecture</title>
+  <desc id="kolam-desc">Open acquisition surface, hosted correctness engine</desc>
+  <style>
+    :root{--paper:#ffffff;--paper-2:#ffffff;--ink:#0b0b12;--muted:#5f6470;--accent:#10b4ab;--accent-soft:#10b4ab16;--rule:#0b0b1224;--rule-strong:#0b0b1266}
+    text{font-family:Inter, Arial, sans-serif;fill:#0b0b12}
+    .eyebrow,.axis,.edge-label{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.1em;fill:#5f6470}
+    .eyebrow{font-size:11px;font-weight:700}.axis{font-size:11px;font-weight:650}.edge-label{font-size:10px;font-weight:650}
+  </style>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#5f6470"/></marker></defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="84" y="94" font-size="42" font-weight="760" letter-spacing="-.02em">Kolam product architecture</text>
+  <text x="84" y="126" font-size="15" fill="#5f6470">Open acquisition surface, hosted correctness engine</text>
+  <text x="1516" y="92" text-anchor="end" class="eyebrow">architecture · slide-16x9</text>
+  <g><path d="M 538.6666666666667 224 H 572.6666666666667" fill="none" stroke="#5f6470" stroke-width="2" marker-end="url(#arrow)"/><text x="555.6666666666667" y="214" text-anchor="middle" class="edge-label">default</text></g><g><path d="M 1027.3333333333335 224 H 1061.3333333333335" fill="none" stroke="#5f6470" stroke-width="2" marker-end="url(#arrow)"/></g><g><path d="M 311.33333333333337 298 V 321 H 311.33333333333337 V 344" fill="none" stroke="#5f6470" stroke-width="2" marker-end="url(#arrow)"/><text x="321.33333333333337" y="312" text-anchor="middle" class="edge-label">verified</text></g><g><path d="M 538.6666666666667 418 H 572.6666666666667" fill="none" stroke="#5f6470" stroke-width="2" marker-end="url(#arrow)"/></g><g><path d="M 1027.3333333333335 418 H 1061.3333333333335" fill="none" stroke="#5f6470" stroke-width="2" marker-end="url(#arrow)"/></g><g><path d="M 1288.6666666666667 492 V 515 H 311.33333333333337 V 538" fill="none" stroke="#5f6470" stroke-width="2" marker-end="url(#arrow)"/></g><g><path d="M 538.6666666666667 612 H 572.6666666666667" fill="none" stroke="#5f6470" stroke-width="2" marker-end="url(#arrow)"/></g><g>
+    <rect x="84" y="150" width="454.6666666666667" height="148" rx="8" fill="#ffffff" stroke="#0b0b1266"/>
+    <text x="104" y="175" class="eyebrow">01</text>
+    <text x="104" y="206" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="104" dy="0">Agent client</tspan></text>
+    <text x="104" y="252" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="104" dy="0">Claude · Codex · Cursor</tspan></text>
+  </g><g>
+    <rect x="572.6666666666667" y="150" width="454.6666666666667" height="148" rx="8" fill="#10b4ab16" stroke="#10b4ab"/>
+    <text x="592.6666666666667" y="175" class="eyebrow">02</text>
+    <text x="592.6666666666667" y="206" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="592.6666666666667" dy="0">Kolam Local</tspan></text>
+    <text x="592.6666666666667" y="252" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="592.6666666666667" dy="0">Private HTML and SVG</tspan></text>
+  </g><g>
+    <rect x="1061.3333333333335" y="150" width="454.6666666666667" height="148" rx="8" fill="#ffffff" stroke="#0b0b1266"/>
+    <text x="1081.3333333333335" y="175" class="eyebrow">03</text>
+    <text x="1081.3333333333335" y="206" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="1081.3333333333335" dy="0">Source-editable artifact</tspan></text>
+    <text x="1081.3333333333335" y="252" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="1081.3333333333335" dy="0">Spec · SVG · receipt</tspan></text>
+  </g><g>
+    <rect x="84" y="344" width="454.6666666666667" height="148" rx="8" fill="#ffffff" stroke="#0b0b1266"/>
+    <text x="104" y="369" class="eyebrow">04</text>
+    <text x="104" y="400" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="104" dy="0">Verified MCP</tspan></text>
+    <text x="104" y="446" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="104" dy="0">Explicit network mode</tspan></text>
+  </g><g>
+    <rect x="572.6666666666667" y="344" width="454.6666666666667" height="148" rx="8" fill="#ffffff" stroke="#0b0b1266"/>
+    <text x="592.6666666666667" y="369" class="eyebrow">05</text>
+    <text x="592.6666666666667" y="400" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="592.6666666666667" dy="0">Framework selector</tspan></text>
+    <text x="592.6666666666667" y="446" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="592.6666666666667" dy="0">Visual grammar routing</tspan></text>
+  </g><g>
+    <rect x="1061.3333333333335" y="344" width="454.6666666666667" height="148" rx="8" fill="#ffffff" stroke="#0b0b1266"/>
+    <text x="1081.3333333333335" y="369" class="eyebrow">06</text>
+    <text x="1081.3333333333335" y="400" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="1081.3333333333335" dy="0">Evidence validator</tspan></text>
+    <text x="1081.3333333333335" y="446" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="1081.3333333333335" dy="0">Reject unsupported claims</tspan></text>
+  </g><g>
+    <rect x="84" y="538" width="454.6666666666667" height="148" rx="8" fill="#ffffff" stroke="#0b0b1266"/>
+    <text x="104" y="563" class="eyebrow">07</text>
+    <text x="104" y="594" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="104" dy="0">Render engines</tspan></text>
+    <text x="104" y="640" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="104" dy="0">Native + confirmed syntax</tspan></text>
+  </g><g>
+    <rect x="572.6666666666667" y="538" width="454.6666666666667" height="148" rx="8" fill="#ffffff" stroke="#0b0b1266"/>
+    <text x="592.6666666666667" y="563" class="eyebrow">08</text>
+    <text x="592.6666666666667" y="594" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="592.6666666666667" dy="0">Hosted viewer</tspan></text>
+    <text x="592.6666666666667" y="640" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="592.6666666666667" dy="0">Payload · SVG · PNG</tspan></text>
+  </g>
+  <line x1="84" y1="858" x2="1516" y2="858" stroke="#0b0b1224"/>
+  <text x="84" y="880" class="eyebrow">Kolam Local · private render</text>
+  <text x="1516" y="880" text-anchor="end" class="eyebrow">v0.1.0</text>
+</svg></div><p class="privacy">Private local render · no content was uploaded.</p><footer>Source-editable artifact · embedded specification: <code>script#kolam-spec</code></footer></main>
+<script id="kolam-spec" type="application/json">{"version":"1.0","family":"architecture","preset":"slide-16x9","title":"Kolam product architecture","subtitle":"Open acquisition surface, hosted correctness engine","source":"","theme":{"paper":"#ffffff","ink":"#0b0b12","muted":"#5f6470","accent":"#10b4ab","font":"Inter, Arial, sans-serif"},"data":{"nodes":[{"id":"agent","label":"Agent client","detail":"Claude · Codex · Cursor","focal":false},{"id":"local","label":"Kolam Local","detail":"Private HTML and SVG","focal":true},{"id":"artifact","label":"Source-editable artifact","detail":"Spec · SVG · receipt","focal":false},{"id":"mcp","label":"Verified MCP","detail":"Explicit network mode","focal":false},{"id":"selector","label":"Framework selector","detail":"Visual grammar routing","focal":false},{"id":"validator","label":"Evidence validator","detail":"Reject unsupported claims","focal":false},{"id":"engines","label":"Render engines","detail":"Native + confirmed syntax","focal":false},{"id":"viewer","label":"Hosted viewer","detail":"Payload · SVG · PNG","focal":false}],"edges":[{"from":"agent","to":"local","label":"default"},{"from":"local","to":"artifact","label":""},{"from":"agent","to":"mcp","label":"verified"},{"from":"mcp","to":"selector","label":""},{"from":"selector","to":"validator","label":""},{"from":"validator","to":"engines","label":""},{"from":"engines","to":"viewer","label":""}]}}</script></body></html>

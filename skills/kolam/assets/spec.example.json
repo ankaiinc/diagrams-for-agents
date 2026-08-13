@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "family": "swot",
+  "preset": "doc-wide",
+  "title": "Launch readiness",
+  "subtitle": "Only claims supported by the supplied context",
+  "source": "The product has a working API and three design partners. Onboarding still requires manual setup. A new regulation opens the market in October. The incumbent announced a competing beta.",
+  "theme": {
+    "paper": "#ffffff",
+    "ink": "#0b0b12",
+    "muted": "#5f6470",
+    "accent": "#10b4ab",
+    "font": "Inter, Arial, sans-serif"
+  },
+  "data": {
+    "strengths": [
+      { "label": "Working API", "evidence": "The product has a working API" },
+      { "label": "Three design partners", "evidence": "three design partners" }
+    ],
+    "weaknesses": [
+      { "label": "Manual onboarding", "evidence": "Onboarding still requires manual setup" }
+    ],
+    "opportunities": [
+      { "label": "October market opening", "evidence": "A new regulation opens the market in October" }
+    ],
+    "threats": [
+      { "label": "Incumbent beta", "evidence": "The incumbent announced a competing beta" }
+    ]
+  }
+}

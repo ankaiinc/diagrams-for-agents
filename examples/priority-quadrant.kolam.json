@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "family": "quadrant",
+  "preset": "doc-wide",
+  "title": "Q4 product bets",
+  "subtitle": "Impact versus confidence, grounded in the planning note",
+  "source": "Brand onboarding is requested by eight of ten design partners and can reuse the existing theme seam. Live collaboration has one request and requires a new state model. Mermaid import appears in five support threads and has a bounded parser path. Mobile editing has two requests and no current mobile surface.",
+  "data": {
+    "axes": { "xLow": "Low confidence", "xHigh": "High confidence", "yLow": "Low impact", "yHigh": "High impact" },
+    "points": [
+      { "label": "Brand onboarding", "x": 0.88, "y": 0.92, "focal": true, "evidence": "Brand onboarding is requested by eight of ten design partners" },
+      { "label": "Mermaid import", "x": 0.76, "y": 0.68, "evidence": "Mermaid import appears in five support threads" },
+      { "label": "Live collaboration", "x": 0.28, "y": 0.55, "evidence": "Live collaboration has one request" },
+      { "label": "Mobile editing", "x": 0.18, "y": 0.32, "evidence": "Mobile editing has two requests" }
+    ]
+  }
+}

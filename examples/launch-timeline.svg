@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="kolam-title kolam-desc" viewBox="0 0 1080 1080" width="1080" height="1080" data-kolam-family="timeline">
+  <title id="kolam-title">From private beta to public proof</title>
+  <desc id="kolam-desc">Ship the acquisition loop in four visible moves</desc>
+  <style>
+    :root{--paper:#ffffff;--paper-2:#ffffff;--ink:#0b0b12;--muted:#5f6470;--accent:#10b4ab;--accent-soft:#10b4ab16;--rule:#0b0b1224;--rule-strong:#0b0b1266}
+    text{font-family:Inter, Arial, sans-serif;fill:#0b0b12}
+    .eyebrow,.axis,.edge-label{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.1em;fill:#5f6470}
+    .eyebrow{font-size:11px;font-weight:700}.axis{font-size:11px;font-weight:650}.edge-label{font-size:10px;font-weight:650}
+  </style>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#5f6470"/></marker></defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="64" y="74" font-size="38" font-weight="760" letter-spacing="-.02em">From private beta to public proof</text>
+  <text x="64" y="106" font-size="15" fill="#5f6470">Ship the acquisition loop in four visible moves</text>
+  <text x="1016" y="72" text-anchor="end" class="eyebrow">timeline · social-square</text>
+  <line x1="116" y1="576.88" x2="964" y2="576.88" stroke="#0b0b1266" stroke-width="2"/><g>
+      <line x1="116" y1="576.88" x2="116" y2="480.88" stroke="#0b0b1266"/>
+      <circle cx="116" cy="576.88" r="7" fill="#0b0b12" stroke="#ffffff" stroke-width="3"/>
+      <text x="116" y="450.88" text-anchor="middle" class="eyebrow">Week 1</text>
+      <text x="116" y="474.88" text-anchor="middle" font-size="16" font-weight="680" fill="#0b0b12" class=""><tspan x="116" dy="0">Private plugin</tspan></text>
+      <text x="116" y="518.88" text-anchor="middle" font-size="12" font-weight="500" fill="#5f6470" class=""><tspan x="116" dy="0">Ten design partners</tspan></text>
+    </g><g>
+      <line x1="398.6666666666667" y1="576.88" x2="398.6666666666667" y2="672.88" stroke="#10b4ab"/>
+      <circle cx="398.6666666666667" cy="576.88" r="10" fill="#10b4ab" stroke="#ffffff" stroke-width="3"/>
+      <text x="398.6666666666667" y="698.88" text-anchor="middle" class="eyebrow">Week 2</text>
+      <text x="398.6666666666667" y="722.88" text-anchor="middle" font-size="16" font-weight="680" fill="#0b0b12" class=""><tspan x="398.6666666666667" dy="0">Public benchmark</tspan></text>
+      <text x="398.6666666666667" y="770.88" text-anchor="middle" font-size="12" font-weight="500" fill="#5f6470" class=""><tspan x="398.6666666666667" dy="0">Fifty messy prompts</tspan></text>
+    </g><g>
+      <line x1="681.3333333333334" y1="576.88" x2="681.3333333333334" y2="480.88" stroke="#0b0b1266"/>
+      <circle cx="681.3333333333334" cy="576.88" r="7" fill="#0b0b12" stroke="#ffffff" stroke-width="3"/>
+      <text x="681.3333333333334" y="450.88" text-anchor="middle" class="eyebrow">Week 3</text>
+      <text x="681.3333333333334" y="474.88" text-anchor="middle" font-size="16" font-weight="680" fill="#0b0b12" class=""><tspan x="681.3333333333334" dy="0">Community remixes</tspan></text>
+      <text x="681.3333333333334" y="518.88" text-anchor="middle" font-size="12" font-weight="500" fill="#5f6470" class=""><tspan x="681.3333333333334" dy="0">Shareable artifacts</tspan></text>
+    </g><g>
+      <line x1="964" y1="576.88" x2="964" y2="672.88" stroke="#0b0b1266"/>
+      <circle cx="964" cy="576.88" r="7" fill="#0b0b12" stroke="#ffffff" stroke-width="3"/>
+      <text x="964" y="698.88" text-anchor="middle" class="eyebrow">Week 4</text>
+      <text x="964" y="722.88" text-anchor="middle" font-size="16" font-weight="680" fill="#0b0b12" class=""><tspan x="964" dy="0">Verified</tspan><tspan x="964" dy="20">conversion</tspan></text>
+      <text x="964" y="770.88" text-anchor="middle" font-size="12" font-weight="500" fill="#5f6470" class=""><tspan x="964" dy="0">Measure repeat use</tspan></text>
+    </g>
+  <line x1="64" y1="1038" x2="1016" y2="1038" stroke="#0b0b1224"/>
+  <text x="64" y="1060" class="eyebrow">Kolam Local · private render</text>
+  <text x="1016" y="1060" text-anchor="end" class="eyebrow">v0.1.0</text>
+</svg>

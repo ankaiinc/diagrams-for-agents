@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "family": "swot",
+  "preset": "social-square",
+  "title": "Fintech launch position",
+  "subtitle": "A grounded view before the licensing decision",
+  "source": "Instant KYC runs through a partner API and the founding team is ex-Stripe. The company has no lending licence, operates in one market, and has a 12-week runway. UPI credit rails are opening and three marketplaces want an embedded offer. RBI scrutiny of NBFC partnerships is tightening and an incumbent is shipping a copy.",
+  "data": {
+    "strengths": [
+      { "label": "Instant partner KYC", "evidence": "Instant KYC runs through a partner API" },
+      { "label": "Ex-Stripe founding team", "evidence": "the founding team is ex-Stripe" }
+    ],
+    "weaknesses": [
+      { "label": "No lending licence", "evidence": "The company has no lending licence" },
+      { "label": "12-week runway", "evidence": "has a 12-week runway" }
+    ],
+    "opportunities": [
+      { "label": "UPI credit rails opening", "evidence": "UPI credit rails are opening" },
+      { "label": "Three embed partners", "evidence": "three marketplaces want an embedded offer" }
+    ],
+    "threats": [
+      { "label": "Tightening RBI scrutiny", "evidence": "RBI scrutiny of NBFC partnerships is tightening" },
+      { "label": "Incumbent copy", "evidence": "an incumbent is shipping a copy" }
+    ]
+  }
+}
