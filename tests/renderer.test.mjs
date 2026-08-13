@@ -4,14 +4,14 @@ import { dirname, join } from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
-import { importMermaid } from '../skills/kolam/scripts/import-mermaid.mjs';
-import { renderHtml, renderSvg, validateSpec } from '../skills/kolam/scripts/render.mjs';
-import { validateArtifact } from '../skills/kolam/scripts/validate-artifact.mjs';
+import { importMermaid } from '../skills/diagrams-for-agents/scripts/import-mermaid.mjs';
+import { renderHtml, renderSvg, validateSpec } from '../skills/diagrams-for-agents/scripts/render.mjs';
+import { validateArtifact } from '../skills/diagrams-for-agents/scripts/validate-artifact.mjs';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 
 test('all six public examples render as self-contained accessible artifacts', async () => {
-  const files = (await readdir(join(root, 'examples'))).filter((file) => file.endsWith('.kolam.json'));
+  const files = (await readdir(join(root, 'examples'))).filter((file) => file.endsWith('.diagrams-for-agents.json'));
   assert.equal(files.length, 6);
   const families = new Set();
   for (const file of files) {
@@ -20,7 +20,7 @@ test('all six public examples render as self-contained accessible artifacts', as
     const html = renderHtml(spec);
     const svg = renderSvg(spec);
     assert.match(svg, /role="img"/);
-    assert.match(svg, /<title id="kolam-title">/);
+    assert.match(svg, /<title id="diagrams-for-agents-title">/);
     assert.doesNotMatch(svg, /var\(--/);
     assert.deepEqual(validateArtifact(html).errors, []);
     assert.doesNotMatch(html, /<script[^>]+src=/i);

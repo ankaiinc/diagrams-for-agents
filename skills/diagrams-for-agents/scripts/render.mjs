@@ -5,7 +5,7 @@ import { homedir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-export const KOLAM_LOCAL_VERSION = '0.1.0';
+export const DIAGRAMS_FOR_AGENTS_LOCAL_VERSION = '0.2.0';
 export const SUPPORTED_FAMILIES = ['swot', 'quadrant', 'comparison', 'flow', 'timeline', 'architecture'];
 
 const PRESETS = {
@@ -26,7 +26,7 @@ const DEFAULT_THEME = {
 const REQUIRED_EVIDENCE = new Set(['swot', 'quadrant', 'comparison']);
 
 function fail(message) {
-  throw new Error(`Kolam spec: ${message}`);
+  throw new Error(`Diagrams for Agents spec: ${message}`);
 }
 
 function isPlainObject(value) {
@@ -371,9 +371,9 @@ export function renderSvg(specInput) {
         : spec.family === 'timeline' ? timelineSvg(spec, box)
           : graphSvg(spec, box, spec.family === 'architecture');
   const titleSize = spec.preset === 'slide-16x9' ? 42 : spec.preset === 'social-square' ? 38 : 32;
-  const rendered = `<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="kolam-title kolam-desc" viewBox="0 0 ${box.width} ${box.height}" width="${box.width}" height="${box.height}" data-kolam-family="${spec.family}">
-  <title id="kolam-title">${x(spec.title)}</title>
-  <desc id="kolam-desc">${x(spec.subtitle || `${spec.family} diagram created with Kolam Local`)}</desc>
+  const rendered = `<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diagrams-for-agents-title diagrams-for-agents-desc" viewBox="0 0 ${box.width} ${box.height}" width="${box.width}" height="${box.height}" data-diagrams-for-agents-family="${spec.family}">
+  <title id="diagrams-for-agents-title">${x(spec.title)}</title>
+  <desc id="diagrams-for-agents-desc">${x(spec.subtitle || `${spec.family} diagram created with Diagrams for Agents Local`)}</desc>
   <style>
     :root{--paper:${spec.theme.paper};--paper-2:${spec.theme.paper};--ink:${spec.theme.ink};--muted:${spec.theme.muted};--accent:${spec.theme.accent};--accent-soft:${spec.theme.accent}16;--rule:${spec.theme.ink}24;--rule-strong:${spec.theme.ink}66}
     text{font-family:${x(spec.theme.font)};fill:var(--ink)}
@@ -387,8 +387,8 @@ export function renderSvg(specInput) {
   <text x="${box.width - box.margin}" y="${box.margin + 8}" text-anchor="end" class="eyebrow">${x(spec.family)} · ${x(spec.preset)}</text>
   ${body}
   <line x1="${box.margin}" y1="${box.height - 42}" x2="${box.width - box.margin}" y2="${box.height - 42}" stroke="var(--rule)"/>
-  <text x="${box.margin}" y="${box.height - 20}" class="eyebrow">Kolam Local · ${REQUIRED_EVIDENCE.has(spec.family) ? 'exact-quote grounded' : 'private render'}</text>
-  <text x="${box.width - box.margin}" y="${box.height - 20}" text-anchor="end" class="eyebrow">v${KOLAM_LOCAL_VERSION}</text>
+  <text x="${box.margin}" y="${box.height - 20}" class="eyebrow">Diagrams for Agents Local · ${REQUIRED_EVIDENCE.has(spec.family) ? 'exact-quote grounded' : 'private render'}</text>
+  <text x="${box.width - box.margin}" y="${box.height - 20}" text-anchor="end" class="eyebrow">v${DIAGRAMS_FOR_AGENTS_LOCAL_VERSION}</text>
 </svg>`;
   // Resolve every semantic token in the standalone SVG. Browser CSS variables are fine
   // inside the HTML artifact, but many slide, Figma, and raster pipelines do not resolve
@@ -413,10 +413,10 @@ export function renderHtml(specInput) {
     ? `<details><summary>Grounding receipt · ${evidence.length} exact quotes</summary><ol>${evidence.map((entry) => `<li><strong>${x(entry.claim)}</strong><blockquote>${x(entry.quote)}</blockquote></li>`).join('')}</ol></details>`
     : '<p class="privacy">Private local render · no content was uploaded.</p>';
   return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${x(spec.title)} · Kolam</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${x(spec.title)} · Diagrams for Agents</title>
 <style>html{background:#e9ecef}body{margin:0;padding:32px;font-family:${x(spec.theme.font)};color:${spec.theme.ink}}main{max-width:1600px;margin:auto}.canvas{background:${spec.theme.paper};border:1px solid #0002;box-shadow:0 20px 60px #0001}.canvas svg{display:block;width:100%;height:auto}details,.privacy{margin:18px 0 0;background:${spec.theme.paper};border:1px solid #0002;padding:14px 18px;font-size:14px}summary{cursor:pointer;font-weight:700}li{margin:12px 0}blockquote{margin:6px 0;color:${spec.theme.muted}}footer{margin-top:12px;color:#60646c;font-size:12px}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}</style></head>
-<body><main><div class="canvas">${svg}</div>${receipt}<footer>Source-editable artifact · embedded specification: <code>script#kolam-spec</code></footer></main>
-<script id="kolam-spec" type="application/json">${safeJson}</script></body></html>`;
+<body><main><div class="canvas">${svg}</div>${receipt}<footer>Source-editable artifact · embedded specification: <code>script#diagrams-for-agents-spec</code></footer></main>
+<script id="diagrams-for-agents-spec" type="application/json">${safeJson}</script></body></html>`;
 }
 
 export function makeReceipt(specInput, outputs = {}) {
@@ -424,9 +424,9 @@ export function makeReceipt(specInput, outputs = {}) {
   const evidence = evidenceEntries(spec);
   const digest = createHash('sha256').update(JSON.stringify(spec)).digest('hex');
   return {
-    schema: 'kolam-local-receipt/1.0',
+    schema: 'diagrams-for-agents-local-receipt/1.0',
     createdAt: new Date().toISOString(),
-    rendererVersion: KOLAM_LOCAL_VERSION,
+    rendererVersion: DIAGRAMS_FOR_AGENTS_LOCAL_VERSION,
     mode: 'local',
     family: spec.family,
     preset: spec.preset,
@@ -440,12 +440,12 @@ export function makeReceipt(specInput, outputs = {}) {
 }
 
 async function emitOptInTelemetry(receipt) {
-  if (process.env.KOLAM_TELEMETRY !== '1') return;
-  const url = process.env.KOLAM_TELEMETRY_URL || 'https://kolam.pragmaticleaders.io/api/v1/telemetry';
-  let anonymousId = process.env.KOLAM_TELEMETRY_ID;
+  if (process.env.DIAGRAMS_FOR_AGENTS_TELEMETRY !== '1') return;
+  const url = process.env.DIAGRAMS_FOR_AGENTS_TELEMETRY_URL || 'https://diagramsforagents.pragmaticleaders.io/api/v1/telemetry';
+  let anonymousId = process.env.DIAGRAMS_FOR_AGENTS_TELEMETRY_ID;
   if (!anonymousId) {
     try {
-      const directory = process.env.KOLAM_CONFIG_DIR || join(homedir(), '.config', 'kolam');
+      const directory = process.env.DIAGRAMS_FOR_AGENTS_CONFIG_DIR || join(homedir(), '.config', 'diagrams-for-agents');
       const idPath = join(directory, 'telemetry-id');
       await mkdir(directory, { recursive: true });
       anonymousId = (await readFile(idPath, 'utf8').catch(async () => {
@@ -477,7 +477,7 @@ async function emitOptInTelemetry(receipt) {
 async function cli(argv) {
   const [inputPath, outputPath, ...rest] = argv;
   if (!inputPath || !outputPath) {
-    console.error('Usage: node render.mjs input.kolam.json output.html [--svg output.svg] [--receipt output.receipt.json]');
+    console.error('Usage: node render.mjs input.diagrams-for-agents.json output.html [--svg output.svg] [--receipt output.receipt.json]');
     process.exitCode = 2;
     return;
   }

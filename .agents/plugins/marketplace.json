@@ -1,11 +1,11 @@
 {
-  "name": "kolam",
+  "name": "diagrams-for-agents",
   "interface": {
-    "displayName": "Kolam"
+    "displayName": "Diagrams for Agents"
   },
   "plugins": [
     {
-      "name": "kolam",
+      "name": "diagrams-for-agents",
       "source": {
         "source": "local",
         "path": "./"

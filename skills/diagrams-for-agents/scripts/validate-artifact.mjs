@@ -11,8 +11,8 @@ export function validateArtifact(html) {
     ['an accessible title reference', /aria-labelledby=["'][^"']+["']/i],
     ['an SVG title', /<title\b[^>]*>/i],
     ['an SVG description', /<desc\b[^>]*>/i],
-    ['an embedded Kolam specification', /<script\b[^>]*id=["']kolam-spec["'][^>]*type=["']application\/json["']/i],
-    ['a diagram family marker', /data-kolam-family=["'][a-z-]+["']/i],
+    ['an embedded Diagrams for Agents specification', /<script\b[^>]*id=["']diagrams-for-agents-spec["'][^>]*type=["']application\/json["']/i],
+    ['a diagram family marker', /data-diagrams-for-agents-family=["'][a-z-]+["']/i],
   ];
   for (const [label, pattern] of required) if (!pattern.test(html)) errors.push(`Missing ${label}.`);
 
@@ -27,7 +27,7 @@ export function validateArtifact(html) {
   ];
   for (const [label, pattern] of forbidden) if (pattern.test(html)) errors.push(`Contains ${label}.`);
 
-  const match = html.match(/<script\b[^>]*id=["']kolam-spec["'][^>]*>([\s\S]*?)<\/script>/i);
+  const match = html.match(/<script\b[^>]*id=["']diagrams-for-agents-spec["'][^>]*>([\s\S]*?)<\/script>/i);
   let spec;
   if (match) {
     try {
@@ -38,10 +38,10 @@ export function validateArtifact(html) {
   }
 
   if (spec) {
-    const familyMarker = html.match(/data-kolam-family=["']([^"']+)["']/i)?.[1];
+    const familyMarker = html.match(/data-diagrams-for-agents-family=["']([^"']+)["']/i)?.[1];
     if (familyMarker !== spec.family) errors.push('SVG family marker does not match the embedded spec.');
-    if (!html.includes(`<title id="kolam-title">`)) errors.push('SVG title must use the stable kolam-title ID.');
-    if (!html.includes(`<desc id="kolam-desc">`)) errors.push('SVG description must use the stable kolam-desc ID.');
+    if (!html.includes(`<title id="diagrams-for-agents-title">`)) errors.push('SVG title must use the stable diagrams-for-agents-title ID.');
+    if (!html.includes(`<desc id="diagrams-for-agents-desc">`)) errors.push('SVG description must use the stable diagrams-for-agents-desc ID.');
   }
 
   return { ok: errors.length === 0, errors, family: spec?.family, preset: spec?.preset };

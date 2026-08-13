@@ -14,8 +14,8 @@ Local artifacts accept five semantic tokens:
 2. Extract candidate background, text, secondary text, CTA/accent, and font values.
 3. Check that `ink` and `accent` are readable on `paper`; adjust only with an explanation.
 4. Show the proposed token diff and source locations.
-5. After approval, put the values in the spec's `theme` object or save a reusable `.kolam/brand.json` file.
+5. After approval, put the values in the spec's `theme` object or save a reusable `.diagrams-for-agents/brand.json` file.
 
 The renderer accepts six-digit hex colours only and a conservative local font-stack syntax. It rejects remote font URLs, CSS imports, and arbitrary CSS.
 
-When no brand is supplied, use Kolam paper: white paper, near-black ink, slate secondary text, and teal accent.
+When no brand is supplied, use Diagrams for Agents paper: white paper, near-black ink, slate secondary text, and teal accent.

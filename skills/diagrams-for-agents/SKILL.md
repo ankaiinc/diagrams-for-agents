@@ -1,9 +1,9 @@
 ---
-name: kolam
-description: Turn messy business, product, or technical context into the most useful diagram as a private self-contained HTML/SVG artifact, or use Kolam Verified for automatic framework selection and server-side evidence validation. Use for SWOTs, quadrants, comparisons, flows, timelines, architecture diagrams, branded diagrams, Mermaid redraws, and requests to visualize prose without generic AI boxes.
+name: diagrams-for-agents
+description: Turn messy business, product, or technical context into the most useful diagram as a private self-contained HTML/SVG artifact, or use Diagrams for Agents Verified for automatic framework selection and server-side evidence validation. Use for SWOTs, quadrants, comparisons, flows, timelines, architecture diagrams, branded diagrams, Mermaid redraws, and requests to visualize prose without generic AI boxes.
 ---
 
-# Kolam
+# Diagrams for Agents
 
 Choose the visual before drawing it. Default to Local Mode so the user's source material stays on their machine. Use Verified Mode only when the user asks for automatic framework judgment, stronger grounding, or an API/MCP result.
 
@@ -16,7 +16,7 @@ Choose the visual before drawing it. Default to Local Mode so the user's source 
 5. Render and validate:
 
    ```bash
-   node <skill-dir>/scripts/render.mjs input.kolam.json output.html --svg output.svg --receipt output.receipt.json
+   node <skill-dir>/scripts/render.mjs input.diagrams-for-agents.json output.html --svg output.svg --receipt output.receipt.json
    node <skill-dir>/scripts/validate-artifact.mjs output.html
    ```
 
@@ -33,11 +33,11 @@ Choose the visual before drawing it. Default to Local Mode so the user's source 
 
 ### Verified Mode — explicit
 
-Read [references/verified-mode.md](references/verified-mode.md). Use the installed `render_diagram` MCP tool when available. Otherwise call the documented Kolam API only after confirming the user is comfortable sending the supplied context to Kolam.
+Read [references/verified-mode.md](references/verified-mode.md). Use the installed `render_diagram` MCP tool when available. Otherwise call the documented Diagrams for Agents API only after confirming the user is comfortable sending the supplied context to Diagrams for Agents.
 
 Verified Mode is the right choice when:
 
-- the user wants Kolam to choose from the broader business-framework catalogue;
+- the user wants Diagrams for Agents to choose from the broader business-framework catalogue;
 - invented or weakly supported business claims would be costly;
 - an application needs a stable `VisualPayload` and hosted render URL;
 - the local six-family set cannot represent the decision honestly.
@@ -49,7 +49,7 @@ Never describe Local Mode as equivalent to Verified Mode. Exact substring checks
 For a Mermaid flowchart, convert first:
 
 ```bash
-node <skill-dir>/scripts/import-mermaid.mjs source.mmd draft.kolam.json
+node <skill-dir>/scripts/import-mermaid.mjs source.mmd draft.diagrams-for-agents.json
 ```
 
 The importer supports `flowchart`/`graph` nodes and directed arrows. It intentionally rejects unsupported Mermaid syntax instead of silently dropping it. Review the resulting labels, add the original context and evidence if needed, then render normally.

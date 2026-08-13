@@ -55,7 +55,7 @@ export function importMermaid(source, title = 'Imported Mermaid flow') {
 async function cli(argv) {
   const [inputPath, outputPath] = argv;
   if (!inputPath || !outputPath) {
-    console.error('Usage: node import-mermaid.mjs source.mmd output.kolam.json');
+    console.error('Usage: node import-mermaid.mjs source.mmd output.diagrams-for-agents.json');
     process.exitCode = 2;
     return;
   }

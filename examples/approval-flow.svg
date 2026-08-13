@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="kolam-title kolam-desc" viewBox="0 0 1200 700" width="1200" height="700" data-kolam-family="flow">
-  <title id="kolam-title">Evidence-first recommendation</title>
-  <desc id="kolam-desc">A small operating loop for high-stakes advice</desc>
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diagrams-for-agents-title diagrams-for-agents-desc" viewBox="0 0 1200 700" width="1200" height="700" data-diagrams-for-agents-family="flow">
+  <title id="diagrams-for-agents-title">Evidence-first recommendation</title>
+  <desc id="diagrams-for-agents-desc">A small operating loop for high-stakes advice</desc>
   <style>
     :root{--paper:#ffffff;--paper-2:#ffffff;--ink:#0b0b12;--muted:#5f6470;--accent:#10b4ab;--accent-soft:#10b4ab16;--rule:#0b0b1224;--rule-strong:#0b0b1266}
     text{font-family:Inter, Arial, sans-serif;fill:#0b0b12}
@@ -34,6 +34,6 @@
     <text x="913.5" y="252" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="913.5" dy="0">Approve, correct, or</tspan><tspan x="913.5" dy="16.25">reject</tspan></text>
   </g>
   <line x1="64" y1="658" x2="1136" y2="658" stroke="#0b0b1224"/>
-  <text x="64" y="680" class="eyebrow">Kolam Local · private render</text>
-  <text x="1136" y="680" text-anchor="end" class="eyebrow">v0.1.0</text>
+  <text x="64" y="680" class="eyebrow">Diagrams for Agents Local · private render</text>
+  <text x="1136" y="680" text-anchor="end" class="eyebrow">v0.2.0</text>
 </svg>

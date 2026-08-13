@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="kolam-title kolam-desc" viewBox="0 0 1080 1080" width="1080" height="1080" data-kolam-family="timeline">
-  <title id="kolam-title">From private beta to public proof</title>
-  <desc id="kolam-desc">Ship the acquisition loop in four visible moves</desc>
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diagrams-for-agents-title diagrams-for-agents-desc" viewBox="0 0 1080 1080" width="1080" height="1080" data-diagrams-for-agents-family="timeline">
+  <title id="diagrams-for-agents-title">From private beta to public proof</title>
+  <desc id="diagrams-for-agents-desc">Ship the acquisition loop in four visible moves</desc>
   <style>
     :root{--paper:#ffffff;--paper-2:#ffffff;--ink:#0b0b12;--muted:#5f6470;--accent:#10b4ab;--accent-soft:#10b4ab16;--rule:#0b0b1224;--rule-strong:#0b0b1266}
     text{font-family:Inter, Arial, sans-serif;fill:#0b0b12}
@@ -38,6 +38,6 @@
       <text x="964" y="770.88" text-anchor="middle" font-size="12" font-weight="500" fill="#5f6470" class=""><tspan x="964" dy="0">Measure repeat use</tspan></text>
     </g>
   <line x1="64" y1="1038" x2="1016" y2="1038" stroke="#0b0b1224"/>
-  <text x="64" y="1060" class="eyebrow">Kolam Local · private render</text>
-  <text x="1016" y="1060" text-anchor="end" class="eyebrow">v0.1.0</text>
+  <text x="64" y="1060" class="eyebrow">Diagrams for Agents Local · private render</text>
+  <text x="1016" y="1060" text-anchor="end" class="eyebrow">v0.2.0</text>
 </svg>

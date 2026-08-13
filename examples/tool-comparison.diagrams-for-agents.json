@@ -4,7 +4,7 @@
   "preset": "slide-16x9",
   "title": "Choose the diagram path",
   "subtitle": "The right tool depends on whether trust or speed is load-bearing",
-  "source": "Mermaid is already in the documentation build and is fastest for simple technical flows. Kolam Local keeps source material on the machine and emits editable HTML plus SVG. Kolam Verified chooses a business framework and requires evidence for named framework claims.",
+  "source": "Mermaid is already in the documentation build and is fastest for simple technical flows. Diagrams for Agents Local keeps source material on the machine and emits editable HTML plus SVG. Diagrams for Agents Verified chooses a business framework and requires evidence for named framework claims.",
   "data": {
     "columns": [
       {
@@ -15,14 +15,14 @@
         ]
       },
       {
-        "title": "Kolam Local",
+        "title": "Diagrams for Agents Local",
         "items": [
           { "label": "Content stays local", "evidence": "keeps source material on the machine" },
           { "label": "Editable HTML and SVG", "evidence": "emits editable HTML plus SVG" }
         ]
       },
       {
-        "title": "Kolam Verified",
+        "title": "Diagrams for Agents Verified",
         "focal": true,
         "items": [
           { "label": "Chooses the framework", "evidence": "chooses a business framework" },

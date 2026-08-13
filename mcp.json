@@ -1,10 +1,10 @@
 {
   "mcpServers": {
-    "kolam-verified": {
+    "diagrams-for-agents-verified": {
       "command": "npx",
       "args": [
         "-y",
-        "https://kolam.pragmaticleaders.io/downloads/kolam-mcp-0.1.0.tgz"
+        "https://diagramsforagents.pragmaticleaders.io/downloads/diagrams-for-agents-mcp-0.2.0.tgz"
       ]
     }
   }

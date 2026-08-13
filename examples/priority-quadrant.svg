@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="kolam-title kolam-desc" viewBox="0 0 1200 700" width="1200" height="700" data-kolam-family="quadrant">
-  <title id="kolam-title">Q4 product bets</title>
-  <desc id="kolam-desc">Impact versus confidence, grounded in the planning note</desc>
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diagrams-for-agents-title diagrams-for-agents-desc" viewBox="0 0 1200 700" width="1200" height="700" data-diagrams-for-agents-family="quadrant">
+  <title id="diagrams-for-agents-title">Q4 product bets</title>
+  <desc id="diagrams-for-agents-desc">Impact versus confidence, grounded in the planning note</desc>
   <style>
     :root{--paper:#ffffff;--paper-2:#ffffff;--ink:#0b0b12;--muted:#5f6470;--accent:#10b4ab;--accent-soft:#10b4ab16;--rule:#0b0b1224;--rule-strong:#0b0b1266}
     text{font-family:Inter, Arial, sans-serif;fill:#0b0b12}
@@ -23,6 +23,6 @@
     <g><circle cx="983.2" cy="192.71999999999997" r="11" fill="#10b4ab" stroke="#ffffff" stroke-width="3"/><text x="997.2" y="180.71999999999997" text-anchor="start" font-size="14" font-weight="650" fill="#0b0b12" class=""><tspan x="997.2" dy="0">Brand onboarding</tspan></text></g><g><circle cx="870.4" cy="296.88" r="8" fill="#0b0b12" stroke="#ffffff" stroke-width="3"/><text x="884.4" y="284.88" text-anchor="start" font-size="14" font-weight="650" fill="#0b0b12" class=""><tspan x="884.4" dy="0">Mermaid import</tspan></text></g><g><circle cx="419.20000000000005" cy="353.29999999999995" r="8" fill="#0b0b12" stroke="#ffffff" stroke-width="3"/><text x="433.20000000000005" y="341.29999999999995" text-anchor="start" font-size="14" font-weight="650" fill="#0b0b12" class=""><tspan x="433.20000000000005" dy="0">Live collaboration</tspan></text></g><g><circle cx="325.2" cy="453.11999999999995" r="8" fill="#0b0b12" stroke="#ffffff" stroke-width="3"/><text x="339.2" y="441.11999999999995" text-anchor="start" font-size="14" font-weight="650" fill="#0b0b12" class=""><tspan x="339.2" dy="0">Mobile editing</tspan></text></g>
   </g>
   <line x1="64" y1="658" x2="1136" y2="658" stroke="#0b0b1224"/>
-  <text x="64" y="680" class="eyebrow">Kolam Local · exact-quote grounded</text>
-  <text x="1136" y="680" text-anchor="end" class="eyebrow">v0.1.0</text>
+  <text x="64" y="680" class="eyebrow">Diagrams for Agents Local · exact-quote grounded</text>
+  <text x="1136" y="680" text-anchor="end" class="eyebrow">v0.2.0</text>
 </svg>

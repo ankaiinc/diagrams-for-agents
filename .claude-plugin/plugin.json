@@ -1,13 +1,13 @@
 {
-  "name": "kolam",
-  "version": "0.1.0",
+  "name": "diagrams-for-agents",
+  "version": "0.2.0",
   "description": "Turn messy context into private source-editable diagrams, or use Verified Mode for framework selection and evidence validation.",
   "author": {
     "name": "Pragmatic Leaders Labs",
     "url": "https://pragmaticleaders.io"
   },
-  "homepage": "https://kolam.pragmaticleaders.io",
-  "repository": "https://github.com/ankaiinc/kolam-plugin",
+  "homepage": "https://diagramsforagents.pragmaticleaders.io",
+  "repository": "https://github.com/ankaiinc/diagrams-for-agents",
   "license": "MIT",
   "keywords": ["diagrams", "visualization", "svg", "swot", "architecture", "grounding", "mcp"]
 }

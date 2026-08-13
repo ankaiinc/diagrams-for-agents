@@ -1,5 +1,5 @@
 {
-  "name": "kolam",
+  "name": "diagrams-for-agents",
   "metadata": {
     "description": "Private local diagrams with an explicit evidence-verified mode."
   },
@@ -8,7 +8,7 @@
   },
   "plugins": [
     {
-      "name": "kolam",
+      "name": "diagrams-for-agents",
       "source": "./"
     }
   ]

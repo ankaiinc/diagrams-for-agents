@@ -2,12 +2,12 @@
   "version": "1.0",
   "family": "architecture",
   "preset": "slide-16x9",
-  "title": "Kolam product architecture",
+  "title": "Diagrams for Agents product architecture",
   "subtitle": "Open acquisition surface, hosted correctness engine",
   "data": {
     "nodes": [
       { "id": "agent", "label": "Agent client", "detail": "Claude · Codex · Cursor" },
-      { "id": "local", "label": "Kolam Local", "detail": "Private HTML and SVG", "focal": true },
+      { "id": "local", "label": "Diagrams for Agents Local", "detail": "Private HTML and SVG", "focal": true },
       { "id": "artifact", "label": "Source-editable artifact", "detail": "Spec · SVG · receipt" },
       { "id": "mcp", "label": "Verified MCP", "detail": "Explicit network mode" },
       { "id": "selector", "label": "Framework selector", "detail": "Visual grammar routing" },
