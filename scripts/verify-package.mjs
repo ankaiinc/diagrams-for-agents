@@ -8,6 +8,7 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const required = [
   '.codex-plugin/plugin.json', '.claude-plugin/plugin.json', '.cursor-plugin/plugin.json', '.mcp.json', 'mcp.json', 'CHANGELOG.md', 'LICENSE', 'README.md',
   'skills/diagrams-for-agents/SKILL.md', 'skills/diagrams-for-agents/agents/openai.yaml',
+  'skills/diagrams-for-agents/references/local-primitives.md',
 ];
 for (const path of required) await access(join(root, path));
 
@@ -25,7 +26,7 @@ for (const path of filesToCheck) {
 }
 
 const examples = (await readdir(join(root, 'examples'))).filter((file) => file.endsWith('.html'));
-if (examples.length !== 6) throw new Error(`Expected six generated HTML examples, found ${examples.length}.`);
+if (examples.length < 6) throw new Error(`Expected at least six generated HTML examples, found ${examples.length}.`);
 for (const file of examples) {
   const result = validateArtifact(await readFile(join(root, 'examples', file), 'utf8'));
   if (!result.ok) throw new Error(`${file}: ${result.errors.join(' ')}`);

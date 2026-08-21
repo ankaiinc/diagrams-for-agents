@@ -2,18 +2,20 @@
   <title id="diagrams-for-agents-title">Diagrams for Agents product architecture</title>
   <desc id="diagrams-for-agents-desc">Open acquisition surface, hosted correctness engine</desc>
   <style>
-    :root{--paper:#ffffff;--paper-2:#ffffff;--ink:#0b0b12;--muted:#5f6470;--accent:#10b4ab;--accent-soft:#10b4ab16;--rule:#0b0b1224;--rule-strong:#0b0b1266}
-    text{font-family:Inter, Arial, sans-serif;fill:#0b0b12}
-    .eyebrow,.axis,.edge-label{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.1em;fill:#5f6470}
-    .eyebrow{font-size:11px;font-weight:700}.axis{font-size:11px;font-weight:650}.edge-label{font-size:10px;font-weight:650}
+    :root{--paper:#ffffff;--paper-2:#f4f6f5;--ink:#0b0b12;--muted:#5f6470;--accent:#10b4ab;--accent-2:#f5d900;--accent-soft:#10b4ab1c;--rule:#0b0b1220;--rule-strong:#0b0b125c}
+    text{font-family:Avenir Next, Helvetica Neue, sans-serif;fill:#0b0b12}
+    .eyebrow,.axis,.edge-label,.meta{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.1em;fill:#5f6470}
+    .eyebrow{font-size:11px;font-weight:700}.meta{font-size:9px;font-weight:620;letter-spacing:.06em}.axis{font-size:11px;font-weight:650}.edge-label{font-size:10px;font-weight:650}
   </style>
-  <defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#5f6470"/></marker></defs>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#5f6470"/></marker><pattern id="paper-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#0b0b1224" stroke-width=".65"/></pattern></defs>
   <rect width="100%" height="100%" fill="#ffffff"/>
-  <text x="84" y="94" font-size="42" font-weight="760" letter-spacing="-.02em">Diagrams for Agents product architecture</text>
+  <rect width="100%" height="100%" fill="url(#paper-grid)" opacity=".44"/>
+  <rect x="84" y="64" width="34" height="4" rx="2" fill="#10b4ab"/><rect x="124" y="64" width="12" height="4" rx="2" fill="#f5d900"/>
+  <text x="84" y="94" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="42" font-weight="760" letter-spacing="-.03em">Diagrams for Agents product architecture</text>
   <text x="84" y="126" font-size="15" fill="#5f6470">Open acquisition surface, hosted correctness engine</text>
   <text x="1516" y="92" text-anchor="end" class="eyebrow">architecture · slide-16x9</text>
   <g><path d="M 538.6666666666667 224 H 572.6666666666667" fill="none" stroke="#5f6470" stroke-width="2" marker-end="url(#arrow)"/><text x="555.6666666666667" y="214" text-anchor="middle" class="edge-label">default</text></g><g><path d="M 1027.3333333333335 224 H 1061.3333333333335" fill="none" stroke="#5f6470" stroke-width="2" marker-end="url(#arrow)"/></g><g><path d="M 311.33333333333337 298 V 321 H 311.33333333333337 V 344" fill="none" stroke="#5f6470" stroke-width="2" marker-end="url(#arrow)"/><text x="321.33333333333337" y="312" text-anchor="middle" class="edge-label">verified</text></g><g><path d="M 538.6666666666667 418 H 572.6666666666667" fill="none" stroke="#5f6470" stroke-width="2" marker-end="url(#arrow)"/></g><g><path d="M 1027.3333333333335 418 H 1061.3333333333335" fill="none" stroke="#5f6470" stroke-width="2" marker-end="url(#arrow)"/></g><g><path d="M 1288.6666666666667 492 V 515 H 311.33333333333337 V 538" fill="none" stroke="#5f6470" stroke-width="2" marker-end="url(#arrow)"/></g><g><path d="M 538.6666666666667 612 H 572.6666666666667" fill="none" stroke="#5f6470" stroke-width="2" marker-end="url(#arrow)"/></g><g>
-    <rect x="84" y="150" width="454.6666666666667" height="148" rx="8" fill="#ffffff" stroke="#0b0b1266"/>
+    <rect x="84" y="150" width="454.6666666666667" height="148" rx="8" fill="#f4f6f5" stroke="#0b0b1266"/>
     <text x="104" y="175" class="eyebrow">01</text>
     <text x="104" y="206" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="104" dy="0">Agent client</tspan></text>
     <text x="104" y="252" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="104" dy="0">Claude · Codex · Cursor</tspan></text>
@@ -23,37 +25,37 @@
     <text x="592.6666666666667" y="206" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="592.6666666666667" dy="0">Diagrams for Agents Local</tspan></text>
     <text x="592.6666666666667" y="252" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="592.6666666666667" dy="0">Private HTML and SVG</tspan></text>
   </g><g>
-    <rect x="1061.3333333333335" y="150" width="454.6666666666667" height="148" rx="8" fill="#ffffff" stroke="#0b0b1266"/>
+    <rect x="1061.3333333333335" y="150" width="454.6666666666667" height="148" rx="8" fill="#f4f6f5" stroke="#0b0b1266"/>
     <text x="1081.3333333333335" y="175" class="eyebrow">03</text>
     <text x="1081.3333333333335" y="206" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="1081.3333333333335" dy="0">Source-editable artifact</tspan></text>
     <text x="1081.3333333333335" y="252" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="1081.3333333333335" dy="0">Spec · SVG · receipt</tspan></text>
   </g><g>
-    <rect x="84" y="344" width="454.6666666666667" height="148" rx="8" fill="#ffffff" stroke="#0b0b1266"/>
+    <rect x="84" y="344" width="454.6666666666667" height="148" rx="8" fill="#f4f6f5" stroke="#0b0b1266"/>
     <text x="104" y="369" class="eyebrow">04</text>
     <text x="104" y="400" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="104" dy="0">Verified MCP</tspan></text>
     <text x="104" y="446" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="104" dy="0">Explicit network mode</tspan></text>
   </g><g>
-    <rect x="572.6666666666667" y="344" width="454.6666666666667" height="148" rx="8" fill="#ffffff" stroke="#0b0b1266"/>
+    <rect x="572.6666666666667" y="344" width="454.6666666666667" height="148" rx="8" fill="#f4f6f5" stroke="#0b0b1266"/>
     <text x="592.6666666666667" y="369" class="eyebrow">05</text>
     <text x="592.6666666666667" y="400" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="592.6666666666667" dy="0">Framework selector</tspan></text>
     <text x="592.6666666666667" y="446" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="592.6666666666667" dy="0">Visual grammar routing</tspan></text>
   </g><g>
-    <rect x="1061.3333333333335" y="344" width="454.6666666666667" height="148" rx="8" fill="#ffffff" stroke="#0b0b1266"/>
+    <rect x="1061.3333333333335" y="344" width="454.6666666666667" height="148" rx="8" fill="#f4f6f5" stroke="#0b0b1266"/>
     <text x="1081.3333333333335" y="369" class="eyebrow">06</text>
     <text x="1081.3333333333335" y="400" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="1081.3333333333335" dy="0">Evidence validator</tspan></text>
     <text x="1081.3333333333335" y="446" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="1081.3333333333335" dy="0">Reject unsupported claims</tspan></text>
   </g><g>
-    <rect x="84" y="538" width="454.6666666666667" height="148" rx="8" fill="#ffffff" stroke="#0b0b1266"/>
+    <rect x="84" y="538" width="454.6666666666667" height="148" rx="8" fill="#f4f6f5" stroke="#0b0b1266"/>
     <text x="104" y="563" class="eyebrow">07</text>
     <text x="104" y="594" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="104" dy="0">Render engines</tspan></text>
     <text x="104" y="640" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="104" dy="0">Native + confirmed syntax</tspan></text>
   </g><g>
-    <rect x="572.6666666666667" y="538" width="454.6666666666667" height="148" rx="8" fill="#ffffff" stroke="#0b0b1266"/>
+    <rect x="572.6666666666667" y="538" width="454.6666666666667" height="148" rx="8" fill="#f4f6f5" stroke="#0b0b1266"/>
     <text x="592.6666666666667" y="563" class="eyebrow">08</text>
     <text x="592.6666666666667" y="594" text-anchor="start" font-size="18" font-weight="720" fill="#0b0b12" class=""><tspan x="592.6666666666667" dy="0">Hosted viewer</tspan></text>
     <text x="592.6666666666667" y="640" text-anchor="start" font-size="13" font-weight="450" fill="#5f6470" class=""><tspan x="592.6666666666667" dy="0">Payload · SVG · PNG</tspan></text>
   </g>
   <line x1="84" y1="858" x2="1516" y2="858" stroke="#0b0b1224"/>
   <text x="84" y="880" class="eyebrow">Diagrams for Agents Local · private render</text>
-  <text x="1516" y="880" text-anchor="end" class="eyebrow">v0.2.0</text>
+  <text x="1516" y="880" text-anchor="end" class="eyebrow">v0.3.0</text>
 </svg>

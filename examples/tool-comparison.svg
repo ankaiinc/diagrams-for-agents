@@ -2,23 +2,25 @@
   <title id="diagrams-for-agents-title">Choose the diagram path</title>
   <desc id="diagrams-for-agents-desc">The right tool depends on whether trust or speed is load-bearing</desc>
   <style>
-    :root{--paper:#ffffff;--paper-2:#ffffff;--ink:#0b0b12;--muted:#5f6470;--accent:#10b4ab;--accent-soft:#10b4ab16;--rule:#0b0b1224;--rule-strong:#0b0b1266}
-    text{font-family:Inter, Arial, sans-serif;fill:#0b0b12}
-    .eyebrow,.axis,.edge-label{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.1em;fill:#5f6470}
-    .eyebrow{font-size:11px;font-weight:700}.axis{font-size:11px;font-weight:650}.edge-label{font-size:10px;font-weight:650}
+    :root{--paper:#ffffff;--paper-2:#f4f6f5;--ink:#0b0b12;--muted:#5f6470;--accent:#10b4ab;--accent-2:#f5d900;--accent-soft:#10b4ab1c;--rule:#0b0b1220;--rule-strong:#0b0b125c}
+    text{font-family:Avenir Next, Helvetica Neue, sans-serif;fill:#0b0b12}
+    .eyebrow,.axis,.edge-label,.meta{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.1em;fill:#5f6470}
+    .eyebrow{font-size:11px;font-weight:700}.meta{font-size:9px;font-weight:620;letter-spacing:.06em}.axis{font-size:11px;font-weight:650}.edge-label{font-size:10px;font-weight:650}
   </style>
-  <defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#5f6470"/></marker></defs>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#5f6470"/></marker><pattern id="paper-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#0b0b1224" stroke-width=".65"/></pattern></defs>
   <rect width="100%" height="100%" fill="#ffffff"/>
-  <text x="84" y="94" font-size="42" font-weight="760" letter-spacing="-.02em">Choose the diagram path</text>
+  <rect width="100%" height="100%" fill="url(#paper-grid)" opacity=".44"/>
+  <rect x="84" y="64" width="34" height="4" rx="2" fill="#10b4ab"/><rect x="124" y="64" width="12" height="4" rx="2" fill="#f5d900"/>
+  <text x="84" y="94" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="42" font-weight="760" letter-spacing="-.03em">Choose the diagram path</text>
   <text x="84" y="126" font-size="15" fill="#5f6470">The right tool depends on whether trust or speed is load-bearing</text>
   <text x="1516" y="92" text-anchor="end" class="eyebrow">comparison · slide-16x9</text>
   <g>
-      <rect x="84" y="142" width="466.6666666666667" height="690" rx="8" fill="#ffffff" stroke="#0b0b1224"/>
+      <rect x="84" y="142" width="466.6666666666667" height="690" rx="8" fill="#f4f6f5" stroke="#0b0b1224"/>
       <text x="108" y="180" text-anchor="start" font-size="19" font-weight="720" fill="#0b0b12" class=""><tspan x="108" dy="0">Mermaid</tspan></text>
       <line x1="106" y1="210" x2="528.6666666666667" y2="210" stroke="#0b0b1224"/>
       <path d="M 109 236 l 4 4 l 8 -9" fill="none" stroke="#5f6470" stroke-width="2"/><text x="132" y="241" text-anchor="start" font-size="15" font-weight="500" fill="#0b0b12" class=""><tspan x="132" dy="0">Already in the docs build</tspan></text><path d="M 109 538 l 4 4 l 8 -9" fill="none" stroke="#5f6470" stroke-width="2"/><text x="132" y="543" text-anchor="start" font-size="15" font-weight="500" fill="#0b0b12" class=""><tspan x="132" dy="0">Fast for simple flows</tspan></text>
     </g><g>
-      <rect x="566.6666666666667" y="142" width="466.6666666666667" height="690" rx="8" fill="#ffffff" stroke="#0b0b1224"/>
+      <rect x="566.6666666666667" y="142" width="466.6666666666667" height="690" rx="8" fill="#f4f6f5" stroke="#0b0b1224"/>
       <text x="590.6666666666667" y="180" text-anchor="start" font-size="19" font-weight="720" fill="#0b0b12" class=""><tspan x="590.6666666666667" dy="0">Diagrams for Agents Local</tspan></text>
       <line x1="588.6666666666667" y1="210" x2="1011.3333333333335" y2="210" stroke="#0b0b1224"/>
       <path d="M 591.6666666666667 236 l 4 4 l 8 -9" fill="none" stroke="#5f6470" stroke-width="2"/><text x="614.6666666666667" y="241" text-anchor="start" font-size="15" font-weight="500" fill="#0b0b12" class=""><tspan x="614.6666666666667" dy="0">Content stays local</tspan></text><path d="M 591.6666666666667 538 l 4 4 l 8 -9" fill="none" stroke="#5f6470" stroke-width="2"/><text x="614.6666666666667" y="543" text-anchor="start" font-size="15" font-weight="500" fill="#0b0b12" class=""><tspan x="614.6666666666667" dy="0">Editable HTML and SVG</tspan></text>
@@ -30,5 +32,5 @@
     </g>
   <line x1="84" y1="858" x2="1516" y2="858" stroke="#0b0b1224"/>
   <text x="84" y="880" class="eyebrow">Diagrams for Agents Local · exact-quote grounded</text>
-  <text x="1516" y="880" text-anchor="end" class="eyebrow">v0.2.0</text>
+  <text x="1516" y="880" text-anchor="end" class="eyebrow">v0.3.0</text>
 </svg>

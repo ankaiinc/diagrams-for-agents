@@ -1,6 +1,6 @@
 {
   "name": "diagrams-for-agents",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Turn messy business, product, and technical context into private source-editable diagrams, with an explicit Verified Mode for automatic framework selection and evidence validation.",
   "author": {
     "name": "Pragmatic Leaders Labs",
@@ -9,13 +9,13 @@
   "homepage": "https://diagramsforagents.pragmaticleaders.io",
   "repository": "https://github.com/ankaiinc/diagrams-for-agents",
   "license": "MIT",
-  "keywords": ["diagrams", "visualization", "svg", "swot", "architecture", "grounding", "mcp"],
+  "keywords": ["diagrams", "visualization", "svg", "raci", "journey-map", "architecture", "grounding", "mcp"],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Diagrams for Agents",
     "shortDescription": "Grounded diagrams from messy context.",
-    "longDescription": "Create private self-contained HTML/SVG diagrams locally, import Mermaid flows, apply brand tokens, or use Diagrams for Agents Verified for automatic framework selection and server-side evidence validation.",
+    "longDescription": "Create 17 private, source-editable HTML/SVG diagram families locally, import Mermaid flows, apply brand tokens, or use Diagrams for Agents Verified for automatic framework selection and server-side evidence validation.",
     "developerName": "Pragmatic Leaders Labs",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],

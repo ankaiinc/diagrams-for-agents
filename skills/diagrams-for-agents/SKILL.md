@@ -10,13 +10,13 @@ Choose the visual before drawing it. Default to Local Mode so the user's source 
 ## Workflow
 
 1. Read the supplied context and identify the reader's decision.
-2. Read [references/visual-selection.md](references/visual-selection.md). Pick one supported family and one destination preset.
-3. For a branded output, read [references/brand.md](references/brand.md). Propose extracted tokens before saving them.
-4. Create a JSON spec using [assets/spec.example.json](assets/spec.example.json) as the shape. Keep the user's full source in `source`; attach an exact `evidence` quote to every claim when the selected family requires it.
+2. Read [references/visual-selection.md](references/visual-selection.md). For a Local Mode primitive, also read [references/local-primitives.md](references/local-primitives.md). Pick one supported family and one destination preset.
+3. For a branded output, read [references/brand.md](references/brand.md). Propose a portable brand profile from the supplied source before saving it; never invent brand tokens.
+4. Create a JSON spec using [assets/spec.example.json](assets/spec.example.json) as the shape. Use the optional `brief` for the decision, audience, owner, and date when they make the artifact more actionable. Keep the user's full source in `source`; attach an exact `evidence` quote to every claim when the selected family requires it.
 5. Render and validate:
 
    ```bash
-   node <skill-dir>/scripts/render.mjs input.diagrams-for-agents.json output.html --svg output.svg --receipt output.receipt.json
+   node <skill-dir>/scripts/render.mjs input.diagrams-for-agents.json output.html --brand .diagrams-for-agents/brand.json --svg output.svg --receipt output.receipt.json
    node <skill-dir>/scripts/validate-artifact.mjs output.html
    ```
 
@@ -27,8 +27,9 @@ Choose the visual before drawing it. Default to Local Mode so the user's source 
 ### Local Mode — default
 
 - No account, API key, hosted renderer, or content upload.
-- Supported families: `swot`, `quadrant`, `comparison`, `flow`, `timeline`, `architecture`.
+- Supported families: `swot`, `quadrant`, `comparison`, `flow`, `timeline`, `architecture`, `cycle`, `pyramid`, `stack`, `venn`, `swimlane`, `raci`, `sipoc`, `fishbone`, `journey-map`, `capability-map`, and `strategy-map`.
 - Produces source-editable HTML with inline SVG, optional standalone SVG, and a machine-readable receipt.
+- Accepts an optional, portable brand profile and decision brief so the artifact inherits an approved design system and states its job clearly.
 - The renderer rejects unsupported families, unsafe theme values, duplicate IDs, dangling connections, and missing exact-quote evidence.
 
 ### Verified Mode — explicit
@@ -40,7 +41,7 @@ Verified Mode is the right choice when:
 - the user wants Diagrams for Agents to choose from the broader business-framework catalogue;
 - invented or weakly supported business claims would be costly;
 - an application needs a stable `VisualPayload` and hosted render URL;
-- the local six-family set cannot represent the decision honestly.
+- the local seventeen-family set cannot represent the decision honestly.
 
 Never describe Local Mode as equivalent to Verified Mode. Exact substring checks prove provenance, not analytical correctness.
 

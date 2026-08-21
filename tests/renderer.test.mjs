@@ -10,7 +10,7 @@ import { validateArtifact } from '../skills/diagrams-for-agents/scripts/validate
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 
-test('all six public examples render as self-contained accessible artifacts', async () => {
+test('all public examples render as self-contained accessible artifacts', async () => {
   const files = (await readdir(join(root, 'examples'))).filter((file) => file.endsWith('.diagrams-for-agents.json'));
   assert.equal(files.length, 6);
   const families = new Set();
@@ -27,6 +27,49 @@ test('all six public examples render as self-contained accessible artifacts', as
     assert.doesNotMatch(html, /(?:src|href)=["']https?:\/\//i);
   }
   assert.deepEqual([...families].sort(), ['architecture', 'comparison', 'flow', 'quadrant', 'swot', 'timeline']);
+});
+
+test('expanded local primitives have bounded schemas and render without network content', () => {
+  const primitives = [
+    ['cycle', { levels: [{ label: 'Create' }, { label: 'Share' }, { label: 'Return' }] }],
+    ['pyramid', { levels: [{ label: 'Outcome' }, { label: 'Capability' }, { label: 'Foundation' }] }],
+    ['stack', { levels: [{ label: 'Experience' }, { label: 'Decision layer' }, { label: 'Data' }] }],
+    ['venn', { sets: [{ label: 'Desirable' }, { label: 'Viable' }, { label: 'Feasible' }], overlapLabel: 'Worth building' }],
+    ['sipoc', { suppliers: [{ label: 'Sales' }], inputs: [{ label: 'Brief' }], processSteps: [{ label: 'Assess' }], outputs: [{ label: 'Plan' }], customers: [{ label: 'Team' }] }],
+    ['raci', { roles: [{ id: 'pm', label: 'PM' }, { id: 'eng', label: 'Engineering' }], activities: [{ id: 'launch', label: 'Launch' }, { id: 'measure', label: 'Measure' }], assignments: [{ activity: 'launch', role: 'pm', value: 'A' }, { activity: 'launch', role: 'eng', value: 'R' }, { activity: 'measure', role: 'pm', value: 'A' }, { activity: 'measure', role: 'eng', value: 'R' }] }],
+    ['swimlane', { lanes: [{ label: 'Customer', steps: ['Request', 'Review'] }, { label: 'Team', steps: ['Qualify', 'Respond'] }] }],
+    ['fishbone', { effect: 'Slow activation', categories: [{ label: 'Product', causes: [{ label: 'Unclear first step' }] }, { label: 'Distribution', causes: [{ label: 'No sharing prompt' }] }] }],
+    ['journey-map', { persona: 'Team lead', stages: [{ label: 'Discover', action: 'Finds plugin', pain: 'Unclear value' }, { label: 'Create', action: 'Makes first artifact', opportunity: 'Share result' }] }],
+    ['capability-map', { levels: [{ label: 'Strategic' }, { label: 'Core' }], domains: [{ label: 'Judgment', capabilities: [{ label: 'Choose visual' }, { label: 'Ground claims' }] }, { label: 'Rendering', capabilities: [{ label: 'Generate SVG' }, { label: 'Export artifact' }] }] }],
+    ['strategy-map', { financial: [{ label: 'Sustainable revenue' }], customer: [{ label: 'Trusted output' }], internalProcess: [{ label: 'Evidence validation' }], learningGrowth: [{ label: 'Workflow learning' }] }],
+  ];
+  for (const [family, data] of primitives) {
+    const svg = renderSvg({ family, title: `${family} test`, data });
+    assert.match(svg, new RegExp(`data-diagrams-for-agents-family="${family}"`));
+    assert.doesNotMatch(svg, /(?:src|href)=["']https?:\/\//i);
+    assert.doesNotMatch(svg, /var\(--/);
+  }
+});
+
+test('brand profiles and decision briefs produce a portable editorial artifact', () => {
+  const spec = validateSpec({
+    family: 'flow',
+    title: 'Brand-ready operating loop',
+    brief: { decision: 'Which handoff needs attention?', audience: 'Operations', owner: 'Chief of staff', asOf: '2026-08-21' },
+    brand: {
+      name: 'Northstar',
+      guidance: 'Calm operating artifacts with a single focal decision.',
+      theme: { paper: '#fbfaf7', surface: '#f0f2ed', ink: '#17201c', muted: '#61706a', accent: '#0d8f79', accent2: '#f0c94b', font: 'Avenir Next, sans-serif', displayFont: 'Avenir Next, sans-serif' },
+      style: { tone: 'editorial', density: 'relaxed', corner: 'soft' },
+    },
+    data: { nodes: [{ id: 'signal', label: 'Read signal', focal: true }, { id: 'decide', label: 'Decide' }], edges: [{ from: 'signal', to: 'decide' }] },
+  });
+  const svg = renderSvg(spec);
+  assert.match(svg, /Northstar/);
+  assert.match(svg, /Which handoff needs attention/);
+  assert.match(svg, /#f0c94b/i);
+  assert.doesNotMatch(svg, /var\(--/);
+  assert.throws(() => validateSpec({ ...spec, brand: { name: 'Unsafe', theme: { accent: 'url(https://bad.example)' } } }), /six-digit hex/);
 });
 
 test('a SWOT claim without exact source evidence fails closed', () => {

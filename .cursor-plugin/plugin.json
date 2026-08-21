@@ -1,7 +1,7 @@
 {
   "name": "diagrams-for-agents",
   "displayName": "Diagrams for Agents",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Turn messy context into private source-editable diagrams, or use Verified Mode for framework selection and evidence validation.",
   "author": {
     "name": "Pragmatic Leaders Labs"
@@ -10,7 +10,7 @@
   "repository": "https://github.com/ankaiinc/diagrams-for-agents",
   "license": "MIT",
   "logo": "./assets/diagrams-for-agents-mark.svg",
-  "keywords": ["diagrams", "visualization", "svg", "swot", "architecture", "grounding", "mcp"],
+  "keywords": ["diagrams", "visualization", "svg", "raci", "journey-map", "architecture", "grounding", "mcp"],
   "category": "productivity",
   "tags": ["diagrams", "strategy", "architecture", "visualization"],
   "skills": "./skills/",

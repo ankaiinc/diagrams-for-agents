@@ -4,13 +4,22 @@
   "preset": "doc-wide",
   "title": "Launch readiness",
   "subtitle": "Only claims supported by the supplied context",
+  "brief": {
+    "decision": "Is the launch ready for the next partner cohort?",
+    "audience": "Product leadership",
+    "owner": "Launch lead",
+    "asOf": "2026-08-21"
+  },
   "source": "The product has a working API and three design partners. Onboarding still requires manual setup. A new regulation opens the market in October. The incumbent announced a competing beta.",
   "theme": {
     "paper": "#ffffff",
+    "surface": "#f4f6f5",
     "ink": "#0b0b12",
     "muted": "#5f6470",
     "accent": "#10b4ab",
-    "font": "Inter, Arial, sans-serif"
+    "accent2": "#f5d900",
+    "font": "Avenir Next, Helvetica Neue, sans-serif",
+    "displayFont": "Avenir Next, Helvetica Neue, sans-serif"
   },
   "data": {
     "strengths": [
