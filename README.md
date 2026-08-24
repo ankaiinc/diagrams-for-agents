@@ -125,8 +125,10 @@ Use this only when you want the hosted Verified Mode. Local Mode stays private a
     "diagrams-for-agents-verified": {
       "command": "npx",
       "args": [
-        "-y",
-        "https://diagrams.4agents.fyi/downloads/diagrams-for-agents-mcp-0.2.1.tgz"
+        "--yes",
+        "--package=https://diagrams.4agents.fyi/downloads/diagrams-for-agents-mcp-0.2.2.tgz",
+        "--",
+        "diagrams-for-agents-mcp"
       ]
     }
   }

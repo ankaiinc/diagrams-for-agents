@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.2 — Reliable generic MCP startup
+
+- Fixed generic MCP manifests and copy-paste instructions so `npx` installs the new self-hosted MCP `0.2.2` tarball as a package, then starts the `diagrams-for-agents-mcp` binary.
+- Added package verification that rejects the previously broken `npx <tarball-url>` argument shape.
+
 ## 0.3.1 — One clear install path for every agent
 
 - Added a ready-to-upload Claude skill ZIP with the folder shape and metadata Claude expects.
