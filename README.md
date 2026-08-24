@@ -87,7 +87,7 @@ With GitHub CLI 2.90 or newer:
 
 ```bash
 gh skill install ankaiinc/diagrams-for-agents diagrams-for-agents \
-  --agent github-copilot --scope user
+  --pin v0.3.3 --agent github-copilot --scope user
 ```
 
 This makes the skill available across Copilot CLI, the Copilot app, coding agent, code review, and agent mode in supported IDEs. Without `gh skill`, download the ZIP, unzip it, and move `diagrams-for-agents/` to `~/.copilot/skills/`.
@@ -110,7 +110,7 @@ Cursor reads `.cursor-plugin/plugin.json`, loads the shared skill, and configure
 
 ```bash
 gh skill install ankaiinc/diagrams-for-agents diagrams-for-agents \
-  --agent universal --scope user
+  --pin v0.3.3 --agent universal --scope user
 ```
 
 Or download and unzip the same skill ZIP into the client's skills directory. The skill itself has no package dependencies; the renderer requires Node 18 or newer.
