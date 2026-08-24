@@ -5,7 +5,7 @@ import { homedir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-export const DIAGRAMS_FOR_AGENTS_LOCAL_VERSION = '0.3.1';
+export const DIAGRAMS_FOR_AGENTS_LOCAL_VERSION = '0.3.2';
 // Local Mode deliberately exposes a bounded, schema-validated primitive set.
 // Specialist syntax and the long-tail framework catalogue stay in Verified Mode.
 export const SUPPORTED_FAMILIES = [

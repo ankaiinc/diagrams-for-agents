@@ -29,6 +29,14 @@ for (const path of ['.mcp.json', 'mcp.json']) {
   const text = await readFile(join(root, path), 'utf8');
   if (!text.includes(canonicalBase)) throw new Error(`${path} must use ${canonicalBase}.`);
   if (text.includes('diagramsforagents.pragmaticleaders.io')) throw new Error(`${path} contains the retired public hostname.`);
+  const manifest = JSON.parse(text);
+  const args = manifest.mcpServers?.['diagrams-for-agents-verified']?.args;
+  if (JSON.stringify(args) !== JSON.stringify([
+    '--yes',
+    '--package=https://diagrams.4agents.fyi/downloads/diagrams-for-agents-mcp-0.2.2.tgz',
+    '--',
+    'diagrams-for-agents-mcp',
+  ])) throw new Error(`${path} must install the tarball as an npx package before starting its binary.`);
 }
 
 const archive = await readFile(join(root, 'dist', `diagrams-for-agents-skill-${pkg.version}.zip`));
