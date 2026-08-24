@@ -5,7 +5,7 @@ import { homedir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-export const DIAGRAMS_FOR_AGENTS_LOCAL_VERSION = '0.3.0';
+export const DIAGRAMS_FOR_AGENTS_LOCAL_VERSION = '0.3.1';
 // Local Mode deliberately exposes a bounded, schema-validated primitive set.
 // Specialist syntax and the long-tail framework catalogue stay in Verified Mode.
 export const SUPPORTED_FAMILIES = [
@@ -737,7 +737,7 @@ export function makeReceipt(specInput, outputs = {}) {
 
 async function emitOptInTelemetry(receipt) {
   if (process.env.DIAGRAMS_FOR_AGENTS_TELEMETRY !== '1') return;
-  const url = process.env.DIAGRAMS_FOR_AGENTS_TELEMETRY_URL || 'https://diagramsforagents.pragmaticleaders.io/api/v1/telemetry';
+  const url = process.env.DIAGRAMS_FOR_AGENTS_TELEMETRY_URL || 'https://diagrams.4agents.fyi/api/v1/telemetry';
   let anonymousId = process.env.DIAGRAMS_FOR_AGENTS_TELEMETRY_ID;
   if (!anonymousId) {
     try {

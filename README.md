@@ -55,7 +55,15 @@ The source JSON, standalone SVG, and self-contained HTML are all in [`examples/`
 
 ## Install
 
-The package uses the shared Agent Skills layout and includes native Codex and Claude plugin manifests.
+Choose your client at **[diagrams.4agents.fyi/install](https://diagrams.4agents.fyi/install)**. The open skill is one canonical Agent Skills folder; the options below only change how that same folder reaches your agent.
+
+### Claude app, Claude chat, or Cowork
+
+1. [Download the ready-to-upload skill ZIP](https://diagrams.4agents.fyi/downloads/diagrams-for-agents-skill.zip).
+2. In Claude, open **Customize → Skills → + → Upload a skill**.
+3. Select the ZIP and enable **Diagrams for Agents**.
+
+Do not unzip it first. The archive already contains the `diagrams-for-agents/` folder and `SKILL.md` in the shape Claude expects. Team and Enterprise owners can upload the same file from **Organization settings → Skills**.
 
 ### Codex
 
@@ -66,10 +74,23 @@ codex plugin add diagrams-for-agents@diagrams-for-agents
 
 ### Claude Code
 
-```text
-/plugin marketplace add ankaiinc/diagrams-for-agents
-/plugin install diagrams-for-agents@diagrams-for-agents
+```bash
+claude plugin marketplace add ankaiinc/diagrams-for-agents
+claude plugin install diagrams-for-agents@diagrams-for-agents
 ```
+
+Inside an active Claude Code session, the equivalent commands start with `/plugin`. Run `/reload-plugins` if Claude asks you to activate the new plugin.
+
+### GitHub Copilot
+
+With GitHub CLI 2.90 or newer:
+
+```bash
+gh skill install ankaiinc/diagrams-for-agents diagrams-for-agents \
+  --agent github-copilot --scope user
+```
+
+This makes the skill available across Copilot CLI, the Copilot app, coding agent, code review, and agent mode in supported IDEs. Without `gh skill`, download the ZIP, unzip it, and move `diagrams-for-agents/` to `~/.copilot/skills/`.
 
 ### Pi
 
@@ -87,7 +108,30 @@ Cursor reads `.cursor-plugin/plugin.json`, loads the shared skill, and configure
 
 ### Other Agent Skills clients
 
-Copy or link `skills/diagrams-for-agents` into the client's skills directory. The skill itself has no package dependencies; the renderer requires Node 18 or newer.
+```bash
+gh skill install ankaiinc/diagrams-for-agents diagrams-for-agents \
+  --agent universal --scope user
+```
+
+Or download and unzip the same skill ZIP into the client's skills directory. The skill itself has no package dependencies; the renderer requires Node 18 or newer.
+
+### Any MCP client
+
+Use this only when you want the hosted Verified Mode. Local Mode stays private and needs no MCP server.
+
+```json
+{
+  "mcpServers": {
+    "diagrams-for-agents-verified": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "https://diagrams.4agents.fyi/downloads/diagrams-for-agents-mcp-0.2.1.tgz"
+      ]
+    }
+  }
+}
+```
 
 ## Try it
 

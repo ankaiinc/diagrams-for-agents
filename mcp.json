@@ -4,7 +4,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "https://diagramsforagents.pragmaticleaders.io/downloads/diagrams-for-agents-mcp-0.2.0.tgz"
+        "https://diagrams.4agents.fyi/downloads/diagrams-for-agents-mcp-0.2.1.tgz"
       ]
     }
   }

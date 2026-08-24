@@ -1,6 +1,6 @@
 ---
 name: diagrams-for-agents
-description: Turn messy business, product, or technical context into the most useful diagram as a private self-contained HTML/SVG artifact, or use Diagrams for Agents Verified for automatic framework selection and server-side evidence validation. Use for SWOTs, quadrants, comparisons, flows, timelines, architecture diagrams, branded diagrams, Mermaid redraws, and requests to visualize prose without generic AI boxes.
+description: Create the right diagram from messy business, product, or technical context. Use for private HTML/SVG visuals, grounded SWOTs, flows, timelines, architecture, branding, and Mermaid redraws.
 ---
 
 # Diagrams for Agents
