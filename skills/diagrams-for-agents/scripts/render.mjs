@@ -5,7 +5,7 @@ import { homedir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-export const DIAGRAMS_FOR_AGENTS_LOCAL_VERSION = '0.3.2';
+export const DIAGRAMS_FOR_AGENTS_LOCAL_VERSION = '0.3.3';
 // Local Mode deliberately exposes a bounded, schema-validated primitive set.
 // Specialist syntax and the long-tail framework catalogue stay in Verified Mode.
 export const SUPPORTED_FAMILIES = [
@@ -333,14 +333,32 @@ function textLines(text, px, py, { size = 18, weight = 500, fill = 'var(--ink)',
   return `<text x="${px}" y="${py}" text-anchor="${anchor}" font-size="${size}" font-weight="${weight}" fill="${fill}" class="${cls}">${wrap(text, max, lines).map((line, index) => `<tspan x="${px}" dy="${index === 0 ? 0 : size * leading}">${x(line)}</tspan>`).join('')}</text>`;
 }
 
+function headerLayout(spec, width, margin) {
+  const titleSize = spec.preset === 'slide-16x9' ? 42 : spec.preset === 'social-square' ? 38 : 32;
+  const titleMax = Math.max(22, Math.floor((width - margin * 2) / (titleSize * 0.56)));
+  const titleLines = wrap(spec.title, titleMax, 3);
+  const titleY = margin + 54;
+  const titleLeading = 1.08;
+  const titleBottom = titleY + (titleLines.length - 1) * titleSize * titleLeading;
+  const subtitleMax = Math.max(30, Math.floor((width - margin * 2) / 8.2));
+  const subtitleLines = spec.subtitle ? wrap(spec.subtitle, subtitleMax, 2) : [];
+  const subtitleY = titleBottom + 30;
+  const contentTop = Math.max(
+    spec.preset === 'social-square' ? 166 : 132,
+    subtitleLines.length ? subtitleY + (subtitleLines.length - 1) * 20 + 28 : titleBottom + 34,
+  );
+  return { titleSize, titleMax, titleLines, titleY, titleLeading, subtitleMax, subtitleLines, subtitleY, contentTop };
+}
+
 function baseParts(spec) {
   const { width, height } = PRESETS[spec.preset];
   const margin = spec.preset === 'slide-16x9' ? 84 : 64;
-  const header = spec.preset === 'social-square' ? 166 : 132;
+  const heading = headerLayout(spec, width, margin);
+  const header = heading.contentTop;
   const footer = 58;
   const radius = spec.brand.style.corner === 'sharp' ? 2 : spec.brand.style.corner === 'round' ? 16 : 8;
   const density = spec.brand.style.density === 'compact' ? 0.88 : 1;
-  return { width, height, margin, header, footer, radius, density, contentW: width - margin * 2, contentH: height - header - footer };
+  return { width, height, margin, header, footer, radius, density, contentW: width - margin * 2, contentH: height - header - footer, heading };
 }
 
 function swotSvg(spec, box) {
@@ -419,8 +437,8 @@ function graphLayout(spec, box, architecture = false) {
   const nodes = spec.data.nodes;
   const cols = architecture ? Math.min(3, nodes.length) : Math.min(nodes.length, 4);
   const rows = Math.ceil(nodes.length / cols);
-  const gapX = 34;
-  const gapY = 46;
+  const gapX = architecture ? 96 : 92;
+  const gapY = 72;
   const nodeW = (box.contentW - gapX * (cols - 1)) / cols;
   const nodeH = Math.min(148, (box.contentH - 40 - gapY * (rows - 1)) / rows);
   const positions = new Map();
@@ -448,18 +466,22 @@ function graphSvg(spec, box, architecture = false) {
     const x2 = b.x + b.w / 2;
     const y2 = b.y + b.h / 2;
     const sameRow = Math.abs(y1 - y2) < 4;
-    const path = sameRow
+    const forward = sameRow && b.x > a.x;
+    const returnY = a.y + a.h + 24;
+    const path = forward
       ? `M ${a.x + a.w} ${y1} H ${b.x}`
-      : `M ${x1} ${a.y + a.h} V ${(a.y + a.h + b.y) / 2} H ${x2} V ${b.y}`;
-    const labelX = sameRow ? (a.x + a.w + b.x) / 2 : x2 + 10;
-    const labelY = sameRow ? y1 - 10 : (a.y + a.h + b.y) / 2 - 9;
-    return `<g><path d="${path}" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#arrow)"/>${edge.label ? `<text x="${labelX}" y="${labelY}" text-anchor="middle" class="edge-label">${x(edge.label)}</text>` : ''}</g>`;
+      : sameRow
+        ? `M ${x1} ${a.y + a.h} V ${returnY} H ${x2} V ${b.y + b.h}`
+        : `M ${x1} ${a.y + a.h} V ${(a.y + a.h + b.y) / 2} H ${x2} V ${b.y}`;
+    const labelX = forward ? (a.x + a.w + b.x) / 2 : (x1 + x2) / 2;
+    const labelY = forward ? y1 - 10 : sameRow ? returnY - 8 : (a.y + a.h + b.y) / 2 - 9;
+    return `<g><path d="${path}" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#arrow)"/>${edge.label ? textLines(edge.label, labelX, labelY, { size: 9, weight: 650, fill: 'var(--muted)', max: 11, lines: 1, anchor: 'middle', cls: 'edge-label' }) : ''}</g>`;
   }).join('');
   const nodes = [...positions.values()].map((node, index) => `<g>
     <rect x="${node.x}" y="${node.y}" width="${node.w}" height="${node.h}" rx="8" fill="${node.focal ? 'var(--accent-soft)' : 'var(--paper-2)'}" stroke="${node.focal ? 'var(--accent)' : 'var(--rule-strong)'}"/>
-    <text x="${node.x + 20}" y="${node.y + 25}" class="eyebrow">${String(index + 1).padStart(2, '0')}</text>
-    ${textLines(node.label, node.x + 20, node.y + 56, { size: 18, weight: 720, max: Math.max(18, Math.floor(node.w / 11)), lines: 2 })}
-    ${node.detail ? textLines(node.detail, node.x + 20, node.y + 102, { size: 13, weight: 450, fill: 'var(--muted)', max: Math.max(22, Math.floor(node.w / 9)), lines: 2 }) : ''}
+    <text x="${node.x + 18}" y="${node.y + 21}" class="eyebrow">${String(index + 1).padStart(2, '0')}</text>
+    ${textLines(node.label, node.x + 18, node.y + 46, { size: 16, weight: 720, max: Math.max(12, Math.floor(node.w / 10)), lines: node.h >= 112 ? 2 : 1 })}
+    ${node.detail ? textLines(node.detail, node.x + 18, node.y + node.h - 15, { size: 12, weight: 450, fill: 'var(--muted)', max: Math.max(14, Math.floor(node.w / 9)), lines: node.h >= 132 ? 2 : 1 }) : ''}
   </g>`).join('');
   return edges + nodes;
 }
@@ -496,9 +518,9 @@ function cycleSvg(spec, box) {
   const items = spec.data.levels;
   const cx = box.width / 2;
   const cy = box.header + box.contentH / 2;
-  const radius = Math.min(box.contentW, box.contentH) * 0.28;
-  const cardW = Math.min(220, box.contentW / 3.8);
-  const cardH = 78;
+  const radius = Math.min(box.contentW, box.contentH) * 0.4;
+  const cardW = Math.min(160, box.contentW / 5);
+  const cardH = 76;
   return `<circle cx="${cx}" cy="${cy}" r="${radius * 0.45}" fill="var(--accent-soft)" stroke="var(--accent)"/><text x="${cx}" y="${cy - 5}" text-anchor="middle" class="eyebrow">REINFORCING</text>${textLines('Loop', cx, cy + 24, { size: 22, weight: 760, anchor: 'middle', max: 12, lines: 1 })}
   ${items.map((item, index) => {
     const angle = -Math.PI / 2 + (Math.PI * 2 * index) / items.length;
@@ -582,29 +604,41 @@ function swimlaneSvg(spec, box) {
 function fishboneSvg(spec, box) {
   const categories = spec.data.categories;
   const left = box.margin + 30;
-  const right = box.width - box.margin - 180;
+  const effectW = Math.min(190, box.contentW * 0.21);
+  const right = box.width - box.margin - effectW - 24;
   const mid = box.header + box.contentH / 2;
-  return `<line x1="${left}" y1="${mid}" x2="${right}" y2="${mid}" stroke="var(--ink)" stroke-width="3" marker-end="url(#arrow)"/>${card(right + 20, mid - 42, 140, 84, spec.data.effect, '', true)}${categories.map((category, index) => {
+  const branchReach = Math.max(44, Math.min(70, box.contentH / 2 - 164));
+  const effectX = right + 18;
+  const effectY = mid - 55;
+  const effect = `<g><rect x="${effectX}" y="${effectY}" width="${effectW}" height="110" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>${textLines(spec.data.effect, effectX + 18, effectY + 34, { size: 16, weight: 720, max: Math.max(16, Math.floor(effectW / 9)), lines: 3 })}</g>`;
+  return `<line x1="${left}" y1="${mid}" x2="${right}" y2="${mid}" stroke="var(--ink)" stroke-width="3" marker-end="url(#arrow)"/>${effect}${categories.map((category, index) => {
     const x0 = left + 90 + index * ((right - left - 160) / Math.max(1, categories.length - 1));
     const up = index % 2 === 0;
-    const y0 = up ? mid - 130 : mid + 130;
+    const y0 = up ? mid - branchReach : mid + branchReach;
     const stem = up ? mid - 12 : mid + 12;
-    return `<line x1="${x0}" y1="${stem}" x2="${x0 - 52}" y2="${y0}" stroke="var(--muted)" stroke-width="2"/>${textLines(category.label, x0 - 58, y0 + (up ? -12 : 20), { size: 14, weight: 760, anchor: 'middle', max: 15, lines: 2 })}${category.causes.map((cause, causeIndex) => textLines(cause.label, x0 - 76, y0 + (up ? -42 - causeIndex * 34 : 52 + causeIndex * 34), { size: 12, fill: 'var(--muted)', anchor: 'middle', max: 18, lines: 2 })).join('')}`;
+    const categoryY = y0 + (up ? -16 : 26);
+    const firstCauseY = y0 + (up ? -58 : 68);
+    return `<line x1="${x0}" y1="${stem}" x2="${x0 - 52}" y2="${y0}" stroke="var(--muted)" stroke-width="2"/>${textLines(category.label, x0 - 58, categoryY, { size: 14, weight: 760, anchor: 'middle', max: 15, lines: 2 })}${category.causes.map((cause, causeIndex) => textLines(cause.label, x0 - 76, firstCauseY + (up ? -causeIndex * 32 : causeIndex * 32), { size: 12, fill: 'var(--muted)', anchor: 'middle', max: 20, lines: 2 })).join('')}`;
   }).join('')}`;
 }
 
 function journeySvg(spec, box) {
   const { stages, persona } = spec.data;
   const columns = stages.map((stage) => ({ title: stage.label, items: [{ label: stage.action }, ...(stage.pain ? [{ label: `Pain: ${stage.pain}` }] : []), ...(stage.opportunity ? [{ label: `Opportunity: ${stage.opportunity}` }] : [])] }));
-  return `${persona ? `<text x="${box.margin}" y="${box.header - 4}" class="eyebrow">PERSONA · ${x(persona)}</text>` : ''}${columnsSvg(spec, box, columns)}`;
+  const personaSpace = persona ? 30 : 0;
+  const contentBox = { ...box, header: box.header + personaSpace, contentH: box.contentH - personaSpace };
+  return `${persona ? `<text x="${box.margin}" y="${box.header + 17}" class="eyebrow">PERSONA · ${x(persona)}</text>` : ''}${columnsSvg(spec, contentBox, columns)}`;
 }
 
 function capabilitySvg(spec, box) {
   const { levels, domains } = spec.data;
   const headerH = 44;
-  const colW = box.contentW / domains.length;
+  const labelW = Math.min(132, Math.max(96, box.contentW * 0.14));
+  const gridLeft = box.margin + labelW;
+  const gridW = box.contentW - labelW;
+  const colW = gridW / domains.length;
   const rowH = (box.contentH - headerH) / levels.length;
-  return `${domains.map((domain, index) => `<rect x="${box.margin + index * colW}" y="${box.header + 8}" width="${colW}" height="${headerH}" fill="${index === 0 ? 'var(--accent)' : 'var(--ink)'}"/>${textLines(domain.label, box.margin + index * colW + colW / 2, box.header + 36, { size: 14, weight: 760, fill: 'var(--paper)', anchor: 'middle', max: 16, lines: 1 })}`).join('')}${levels.map((level, row) => { const y0 = box.header + 8 + headerH + row * rowH; return `<text x="${box.margin - 10}" y="${y0 + 26}" text-anchor="end" class="eyebrow">${x(level.label)}</text>${domains.map((domain, col) => { const item = domain.capabilities[row % domain.capabilities.length]; return `<rect x="${box.margin + col * colW}" y="${y0}" width="${colW}" height="${rowH - 6}" fill="var(--paper-2)" stroke="var(--rule)"/>${textLines(item.label, box.margin + col * colW + 14, y0 + 30, { size: 13, weight: 650, max: Math.max(12, Math.floor(colW / 10)), lines: 2 })}`; }).join('')}`; }).join('')}`;
+  return `${domains.map((domain, index) => `<rect x="${gridLeft + index * colW}" y="${box.header + 8}" width="${colW}" height="${headerH}" fill="${index === 0 ? 'var(--accent)' : 'var(--ink)'}"/>${textLines(domain.label, gridLeft + index * colW + colW / 2, box.header + 36, { size: 14, weight: 760, fill: 'var(--paper)', anchor: 'middle', max: 16, lines: 1 })}`).join('')}${levels.map((level, row) => { const y0 = box.header + 8 + headerH + row * rowH; return `${textLines(level.label, gridLeft - 12, y0 + 24, { size: 11, weight: 700, anchor: 'end', max: 15, lines: 2, cls: 'eyebrow' })}${domains.map((domain, col) => { const item = domain.capabilities[row % domain.capabilities.length]; return `<rect x="${gridLeft + col * colW}" y="${y0}" width="${colW}" height="${rowH - 6}" fill="var(--paper-2)" stroke="var(--rule)"/>${textLines(item.label, gridLeft + col * colW + 14, y0 + 30, { size: 13, weight: 650, max: Math.max(12, Math.floor(colW / 10)), lines: 2 })}`; }).join('')}`; }).join('')}`;
 }
 
 function strategySvg(spec, box) {
@@ -651,7 +685,6 @@ export function renderSvg(specInput) {
                             : spec.family === 'capability-map' ? capabilitySvg(spec, box)
                               : spec.family === 'strategy-map' ? strategySvg(spec, box)
                                 : graphSvg(spec, box, spec.family === 'architecture');
-  const titleSize = spec.preset === 'slide-16x9' ? 42 : spec.preset === 'social-square' ? 38 : 32;
   const brief = [
     spec.brief.decision && `Decision · ${spec.brief.decision}`,
     spec.brief.audience && `For · ${spec.brief.audience}`,
@@ -659,8 +692,8 @@ export function renderSvg(specInput) {
     spec.brief.asOf && `As of · ${spec.brief.asOf}`,
   ].filter(Boolean);
   const headerMeta = spec.brand.name || brief.length
-    ? `<text x="${box.width - box.margin}" y="${box.margin + 8}" text-anchor="end" class="eyebrow">${x(spec.brand.name || `${spec.family} · ${spec.preset}`)}</text>${brief.length ? `<text x="${box.width - box.margin}" y="${box.margin + 30}" text-anchor="end" class="meta">${x(brief.join('  ·  '))}</text>` : ''}`
-    : `<text x="${box.width - box.margin}" y="${box.margin + 8}" text-anchor="end" class="eyebrow">${x(spec.family)} · ${x(spec.preset)}</text>`;
+    ? `<text x="${box.width - box.margin}" y="${box.margin - 8}" text-anchor="end" class="eyebrow">${x(spec.brand.name || `${spec.family} · ${spec.preset}`)}</text>${brief.length ? `<text x="${box.width - box.margin}" y="${box.margin + 8}" text-anchor="end" class="meta">${x(brief.join('  ·  '))}</text>` : ''}`
+    : `<text x="${box.width - box.margin}" y="${box.margin - 8}" text-anchor="end" class="eyebrow">${x(spec.family)} · ${x(spec.preset)}</text>`;
   const paperTexture = spec.brand.style.tone === 'editorial'
     ? `<rect width="100%" height="100%" fill="url(#paper-grid)" opacity=".44"/>`
     : '';
@@ -677,8 +710,8 @@ export function renderSvg(specInput) {
   <rect width="100%" height="100%" fill="var(--paper)"/>
   ${paperTexture}
   <rect x="${box.margin}" y="${box.margin - 20}" width="34" height="4" rx="2" fill="var(--accent)"/><rect x="${box.margin + 40}" y="${box.margin - 20}" width="12" height="4" rx="2" fill="var(--accent-2)"/>
-  <text x="${box.margin}" y="${box.margin + 10}" font-family="${x(spec.theme.displayFont)}" font-size="${titleSize}" font-weight="760" letter-spacing="-.03em">${x(spec.title)}</text>
-  ${spec.subtitle ? `<text x="${box.margin}" y="${box.margin + 42}" font-size="15" fill="var(--muted)">${x(spec.subtitle)}</text>` : ''}
+  ${textLines(spec.title, box.margin, box.heading.titleY, { size: box.heading.titleSize, weight: 760, max: box.heading.titleMax, lines: 3, leading: box.heading.titleLeading, cls: 'diagram-title' }).replace('<text ', `<text font-family="${x(spec.theme.displayFont)}" letter-spacing="-.03em" `)}
+  ${spec.subtitle ? textLines(spec.subtitle, box.margin, box.heading.subtitleY, { size: 15, fill: 'var(--muted)', max: box.heading.subtitleMax, lines: 2, leading: 1.3, cls: 'diagram-subtitle' }) : ''}
   ${headerMeta}
   ${body}
   <line x1="${box.margin}" y1="${box.height - 42}" x2="${box.width - box.margin}" y2="${box.height - 42}" stroke="var(--rule)"/>

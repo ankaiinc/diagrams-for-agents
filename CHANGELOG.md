@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.3 — Reliable layouts and accessible install surface
+
+- Added bounded, dynamic title and subtitle layout so valid long headings cannot collide with metadata or diagram content.
+- Corrected fishbone, capability-map, journey-map, cycle, flow, and architecture spacing for dense but valid content across document, slide, and square outputs.
+- Corrected the public fishbone example so its causes match the renderer's documented object schema.
+- Added keyboard, landmark, contrast, touch-target, responsive overflow, and browser-security protections to the public product and install experience.
+
 ## 0.3.2 — Reliable generic MCP startup
 
 - Fixed generic MCP manifests and copy-paste instructions so `npx` installs the new self-hosted MCP `0.2.2` tarball as a package, then starts the `diagrams-for-agents-mcp` binary.

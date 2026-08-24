@@ -1,6 +1,6 @@
 {
   "name": "diagrams-for-agents",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Turn messy business, product, and technical context into private source-editable diagrams, with an explicit Verified Mode for automatic framework selection and evidence validation.",
   "author": {
     "name": "Pragmatic Leaders Labs",
