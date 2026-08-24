@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1 — One clear install path for every agent
+
+- Added a ready-to-upload Claude skill ZIP with the folder shape and metadata Claude expects.
+- Added first-class install instructions for Claude, Claude Code, Codex, GitHub Copilot, Cursor, Pi, generic Agent Skills clients, and generic MCP clients.
+- Added deterministic distribution checks so ZIP contents, versioned downloads, MCP endpoints, and plugin versions cannot silently drift.
+- Moved every public plugin and MCP manifest to the canonical `diagrams.4agents.fyi` hostname.
+- Rebuilt the Verified MCP package as `0.2.1` so the distributed client itself uses the canonical hostname instead of relying on a redirect.
+
 ## 0.3.0 — Operating primitives in Local Mode
 
 - Expanded Local Mode from six to seventeen bounded, source-editable diagram families.

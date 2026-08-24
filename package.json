@@ -1,11 +1,12 @@
 {
   "name": "diagrams-for-agents-local-plugin",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "type": "module",
   "scripts": {
     "examples": "node scripts/build-examples.mjs",
-    "test": "node --test tests/*.test.mjs",
+    "distribution": "node scripts/build-distribution.mjs",
+    "test": "npm run distribution && node --test tests/*.test.mjs",
     "verify": "npm run examples && npm test && node scripts/verify-package.mjs"
   },
   "engines": {
