@@ -1,7 +1,7 @@
 {
   "name": "diagrams-for-agents",
   "displayName": "Diagrams for Agents",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Turn messy context into private source-editable diagrams, or use Verified Mode for framework selection and evidence validation.",
   "author": {
     "name": "Pragmatic Leaders Labs"

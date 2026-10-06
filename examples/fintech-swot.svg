@@ -19,27 +19,27 @@
       <text x="88" y="210" class="eyebrow">01</text>
       <text x="128" y="212" font-size="19" font-weight="700">Strengths</text>
       <line x1="88" y1="230" x2="507" y2="230" stroke="#0b0b1224"/>
-      <circle cx="95" cy="255" r="4" fill="#10b4ab"/><text x="112" y="260" text-anchor="start" font-size="16" font-weight="500" fill="#0b0b12" class=""><tspan x="112" dy="0">Instant partner KYC</tspan></text><circle cx="95" cy="313" r="4" fill="#10b4ab"/><text x="112" y="318" text-anchor="start" font-size="16" font-weight="500" fill="#0b0b12" class=""><tspan x="112" dy="0">Ex-Stripe founding team</tspan></text>
+      <circle cx="95" cy="253" r="4" fill="#10b4ab"/><text x="112" y="259.2" text-anchor="start" style="font-size:16px" font-weight="500" fill="#0b0b12"><tspan x="112" dy="0">Instant partner KYC</tspan></text><circle cx="95" cy="418" r="4" fill="#10b4ab"/><text x="112" y="424.2" text-anchor="start" style="font-size:16px" font-weight="500" fill="#0b0b12"><tspan x="112" dy="0">Ex-Stripe founding team</tspan></text>
     </g><g>
       <rect x="549" y="176" width="467" height="414" rx="8" fill="#f4f6f5" stroke="#0b0b1224"/>
       <text x="573" y="210" class="eyebrow">02</text>
       <text x="613" y="212" font-size="19" font-weight="700">Weaknesses</text>
       <line x1="573" y1="230" x2="992" y2="230" stroke="#0b0b1224"/>
-      <circle cx="580" cy="255" r="4" fill="#0b0b12"/><text x="597" y="260" text-anchor="start" font-size="16" font-weight="500" fill="#0b0b12" class=""><tspan x="597" dy="0">No lending licence</tspan></text><circle cx="580" cy="313" r="4" fill="#0b0b12"/><text x="597" y="318" text-anchor="start" font-size="16" font-weight="500" fill="#0b0b12" class=""><tspan x="597" dy="0">12-week runway</tspan></text>
+      <circle cx="580" cy="253" r="4" fill="#0b0b12"/><text x="597" y="259.2" text-anchor="start" style="font-size:16px" font-weight="500" fill="#0b0b12"><tspan x="597" dy="0">No lending licence</tspan></text><circle cx="580" cy="418" r="4" fill="#0b0b12"/><text x="597" y="424.2" text-anchor="start" style="font-size:16px" font-weight="500" fill="#0b0b12"><tspan x="597" dy="0">12-week runway</tspan></text>
     </g><g>
       <rect x="64" y="608" width="467" height="414" rx="8" fill="#10b4ab16" stroke="#10b4ab"/>
       <text x="88" y="642" class="eyebrow">03</text>
       <text x="128" y="644" font-size="19" font-weight="700">Opportunities</text>
       <line x1="88" y1="662" x2="507" y2="662" stroke="#0b0b1224"/>
-      <circle cx="95" cy="687" r="4" fill="#10b4ab"/><text x="112" y="692" text-anchor="start" font-size="16" font-weight="500" fill="#0b0b12" class=""><tspan x="112" dy="0">UPI credit rails opening</tspan></text><circle cx="95" cy="745" r="4" fill="#10b4ab"/><text x="112" y="750" text-anchor="start" font-size="16" font-weight="500" fill="#0b0b12" class=""><tspan x="112" dy="0">Three embed partners</tspan></text>
+      <circle cx="95" cy="685" r="4" fill="#10b4ab"/><text x="112" y="691.2" text-anchor="start" style="font-size:16px" font-weight="500" fill="#0b0b12"><tspan x="112" dy="0">UPI credit rails opening</tspan></text><circle cx="95" cy="850" r="4" fill="#10b4ab"/><text x="112" y="856.2" text-anchor="start" style="font-size:16px" font-weight="500" fill="#0b0b12"><tspan x="112" dy="0">Three embed partners</tspan></text>
     </g><g>
       <rect x="549" y="608" width="467" height="414" rx="8" fill="#f4f6f5" stroke="#0b0b1224"/>
       <text x="573" y="642" class="eyebrow">04</text>
       <text x="613" y="644" font-size="19" font-weight="700">Threats</text>
       <line x1="573" y1="662" x2="992" y2="662" stroke="#0b0b1224"/>
-      <circle cx="580" cy="687" r="4" fill="#0b0b12"/><text x="597" y="692" text-anchor="start" font-size="16" font-weight="500" fill="#0b0b12" class=""><tspan x="597" dy="0">Tightening RBI scrutiny</tspan></text><circle cx="580" cy="745" r="4" fill="#0b0b12"/><text x="597" y="750" text-anchor="start" font-size="16" font-weight="500" fill="#0b0b12" class=""><tspan x="597" dy="0">Incumbent copy</tspan></text>
+      <circle cx="580" cy="685" r="4" fill="#0b0b12"/><text x="597" y="691.2" text-anchor="start" style="font-size:16px" font-weight="500" fill="#0b0b12"><tspan x="597" dy="0">Tightening RBI scrutiny</tspan></text><circle cx="580" cy="850" r="4" fill="#0b0b12"/><text x="597" y="856.2" text-anchor="start" style="font-size:16px" font-weight="500" fill="#0b0b12"><tspan x="597" dy="0">Incumbent copy</tspan></text>
     </g>
   <line x1="64" y1="1038" x2="1016" y2="1038" stroke="#0b0b1224"/>
   <text x="64" y="1060" class="eyebrow">Diagrams for Agents Local · exact-quote grounded</text>
-  <text x="1016" y="1060" text-anchor="end" class="eyebrow">v0.3.3</text>
+  <text x="1016" y="1060" text-anchor="end" class="eyebrow">v0.3.4</text>
 </svg>

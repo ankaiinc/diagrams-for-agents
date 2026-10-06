@@ -4,6 +4,7 @@ import { dirname, join } from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
+import { limitFor } from './support/limits.mjs';
 import { renderSvg, validateSpec } from '../skills/diagrams-for-agents/scripts/render.mjs';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
@@ -17,8 +18,8 @@ test('the documented fishbone example matches the renderer schema', async () => 
 });
 
 test('a valid maximum-length title wraps into a bounded dynamic header', () => {
-  const title = 'A deliberately long but valid decision title that must remain readable without colliding with metadata or content'.padEnd(120, '!');
-  assert.equal(title.length, 120);
+  const title = 'A deliberately long but valid decision title that must remain readable without colliding with metadata or content'.padEnd(limitFor('architecture', 'social-square', 2, 'title'), '!').slice(0, limitFor('architecture', 'social-square', 2, 'title'));
+  assert.equal(title.length, limitFor('architecture', 'social-square', 2, 'title'));
   const svg = renderSvg({
     family: 'architecture',
     preset: 'social-square',

@@ -3,6 +3,8 @@ import { basename } from 'node:path';
 import { readFile, writeFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 
+import { countLimit } from './fit.mjs';
+
 const UNSUPPORTED = /^(subgraph|end\b|classDef\b|class\b|style\b|linkStyle\b|click\b|accTitle\b|accDescr\b)/i;
 
 function cleanLabel(value) {
@@ -38,8 +40,10 @@ export function importMermaid(source, title = 'Imported Mermaid flow') {
     const node = parseNode(line);
     nodes.set(node.id, nodes.get(node.id) || node);
   }
-  if (nodes.size < 2 || nodes.size > 9) throw new Error('Imported flows must contain 2–9 nodes. Split larger diagrams into overview and detail.');
-  if (edges.length < 1 || edges.length > 12) throw new Error('Imported flows must contain 1–12 directed edges.');
+  const maxNodes = countLimit('flow', 'nodes', 9);
+  const maxEdges = countLimit('flow', 'edges', 12);
+  if (nodes.size < 2 || nodes.size > maxNodes) throw new Error(`Imported flows must contain 2–${maxNodes} nodes. Split larger diagrams into overview and detail.`);
+  if (edges.length < 1 || edges.length > maxEdges) throw new Error(`Imported flows must contain 1–${maxEdges} directed edges.`);
 
   return {
     version: '1.0',

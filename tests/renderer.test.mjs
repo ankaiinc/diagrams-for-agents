@@ -4,6 +4,7 @@ import { dirname, join } from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
+import { FIT_LIMITS } from '../skills/diagrams-for-agents/scripts/fit-limits.mjs';
 import { importMermaid } from '../skills/diagrams-for-agents/scripts/import-mermaid.mjs';
 import { renderHtml, renderSvg, validateSpec } from '../skills/diagrams-for-agents/scripts/render.mjs';
 import { validateArtifact } from '../skills/diagrams-for-agents/scripts/validate-artifact.mjs';
@@ -97,8 +98,9 @@ test('unsafe theme values and remote font injection fail closed', () => {
 test('dangling graph connections and excessive complexity fail closed', () => {
   const base = { family: 'architecture', title: 'Architecture' };
   assert.throws(() => validateSpec({ ...base, data: { nodes: [{ id: 'a', label: 'A' }, { id: 'b', label: 'B' }], edges: [{ from: 'a', to: 'missing' }] } }), /unknown node/);
-  const nodes = Array.from({ length: 10 }, (_, index) => ({ id: `n${index}`, label: `Node ${index}` }));
-  assert.throws(() => validateSpec({ ...base, data: { nodes, edges: [] } }), /2–9 items/);
+  const limit = FIT_LIMITS.architecture.counts.nodes;
+  const nodes = Array.from({ length: limit + 1 }, (_, index) => ({ id: `n${index}`, label: `Node ${index}` }));
+  assert.throws(() => validateSpec({ ...base, data: { nodes, edges: [] } }), new RegExp(`data\\.nodes has ${limit + 1} items; architecture diagrams fit at most ${limit}\\. Split it across two diagrams\\.`));
 });
 
 test('artifact validation rejects active and remote content', () => {

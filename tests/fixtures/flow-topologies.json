@@ -1,0 +1,797 @@
+[
+ {
+  "name": "topology-1",
+  "spec": {
+   "version": "1.0",
+   "family": "flow",
+   "preset": "doc-wide",
+   "title": "Order intake to settlement across the retail desk",
+   "subtitle": "Neutral labels that keep the same shape and text lengths as a real report, including a retry path",
+   "source": "synthetic regression fixture",
+   "data": {
+    "nodes": [
+     {
+      "id": "P1",
+      "label": "P1 \u00b7 Next prepare",
+      "detail": "Handle ID one establish prepare",
+      "focal": false
+     },
+     {
+      "id": "P2",
+      "label": "P2 \u00b7 Handle / establish",
+      "detail": "Next prepare ID on check",
+      "focal": false
+     },
+     {
+      "id": "P3",
+      "label": "P3 \u00b7 Establish check",
+      "detail": "Handle, check, prepare, prepare",
+      "focal": false
+     },
+     {
+      "id": "P4",
+      "label": "P4 \u00b7 Prepare handle prepare",
+      "detail": "Handle, validate, handle, One",
+      "focal": true
+     },
+     {
+      "id": "P5",
+      "label": "P5 \u00b7 Validate handle",
+      "detail": "Handle + validate + one",
+      "focal": false
+     },
+     {
+      "id": "P6",
+      "label": "P6 \u00b7 Processing handle",
+      "detail": "Validate to one 3",
+      "focal": false
+     },
+     {
+      "id": "P7",
+      "label": "P7 \u00b7 Validate / establish",
+      "detail": "Check check prepare establish",
+      "focal": false
+     }
+    ],
+    "edges": [
+     {
+      "from": "P1",
+      "to": "P2",
+      "label": ""
+     },
+     {
+      "from": "P2",
+      "to": "P3",
+      "label": ""
+     },
+     {
+      "from": "P3",
+      "to": "P4",
+      "label": ""
+     },
+     {
+      "from": "P4",
+      "to": "P5",
+      "label": "validate"
+     },
+     {
+      "from": "P5",
+      "to": "P6",
+      "label": ""
+     },
+     {
+      "from": "P4",
+      "to": "P7",
+      "label": "validate"
+     },
+     {
+      "from": "P7",
+      "to": "P2",
+      "label": "establish check"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "name": "topology-2",
+  "spec": {
+   "version": "1.0",
+   "family": "flow",
+   "preset": "doc-wide",
+   "title": "How a rebuild request moves through review and",
+   "subtitle": "Every connector is routed on its own track; the subtitle is deliberately close to its maximum",
+   "source": "synthetic regression fixture",
+   "data": {
+    "nodes": [
+     {
+      "id": "A1",
+      "label": "A1 \u00b7 Check check one",
+      "detail": "Prepare one processing validate",
+      "focal": false
+     },
+     {
+      "id": "A2",
+      "label": "A2 \u00b7 Handle handle?",
+      "detail": "Handle validate one check",
+      "focal": false
+     },
+     {
+      "id": "A3",
+      "label": "A3 \u00b7 Next or prepare?",
+      "detail": "Next 1,200s OR prepare-prepare",
+      "focal": true
+     },
+     {
+      "id": "A4",
+      "label": "A4 \u00b7 Validate to one 4",
+      "detail": "Handle establish next next check",
+      "focal": true
+     },
+     {
+      "id": "A5",
+      "label": "A5 \u00b7 Handle or processing",
+      "detail": "Validate validate handle handle next",
+      "focal": false
+     },
+     {
+      "id": "A6",
+      "label": "A6 \u00b7 Validate one prepare",
+      "detail": "Check is establish; next validate",
+      "focal": false
+     },
+     {
+      "id": "A7",
+      "label": "A7 \u00b7 Prepare or processing",
+      "detail": "Validate Check establish handle",
+      "focal": false
+     }
+    ],
+    "edges": [
+     {
+      "from": "A1",
+      "to": "A2",
+      "label": ""
+     },
+     {
+      "from": "A2",
+      "to": "A3",
+      "label": "handle"
+     },
+     {
+      "from": "A2",
+      "to": "A5",
+      "label": "handle next"
+     },
+     {
+      "from": "A3",
+      "to": "A4",
+      "label": "one"
+     },
+     {
+      "from": "A3",
+      "to": "A5",
+      "label": "no"
+     },
+     {
+      "from": "A5",
+      "to": "A6",
+      "label": "one next"
+     },
+     {
+      "from": "A5",
+      "to": "A7",
+      "label": "check validate"
+     },
+     {
+      "from": "A6",
+      "to": "A7",
+      "label": ""
+     }
+    ]
+   }
+  }
+ },
+ {
+  "name": "topology-3",
+  "spec": {
+   "version": "1.0",
+   "family": "flow",
+   "preset": "doc-wide",
+   "title": "Meaning of a decision from capture to published",
+   "subtitle": "A realistic title and subtitle so header height and card space are measured the way real reports",
+   "source": "synthetic regression fixture",
+   "data": {
+    "nodes": [
+     {
+      "id": "T1",
+      "label": "T1 \u00b7 Validate handle check",
+      "detail": "Handle establish one check",
+      "focal": false
+     },
+     {
+      "id": "T2",
+      "label": "T2 \u00b7 Prepare establish",
+      "detail": "One, validate, handle, prepare",
+      "focal": false
+     },
+     {
+      "id": "T3",
+      "label": "T3 \u00b7 Prepare check",
+      "detail": "Handle, processing one One",
+      "focal": false
+     },
+     {
+      "id": "T4",
+      "label": "T4 \u00b7 Prepare next",
+      "detail": "Prepare, validate, check, check",
+      "focal": false
+     },
+     {
+      "id": "T5",
+      "label": "T5 \u00b7 One-next processing",
+      "detail": "Next one 3 validate handle",
+      "focal": false
+     },
+     {
+      "id": "T6",
+      "label": "T6 \u00b7 Check verification",
+      "detail": "One / one / prepare check",
+      "focal": false
+     },
+     {
+      "id": "T7",
+      "label": "T7 \u00b7 Handle verification One",
+      "detail": "Validate by prepare-next next",
+      "focal": false
+     },
+     {
+      "id": "T8",
+      "label": "T8 \u00b7 Prepare verification",
+      "detail": "Prepare by prepare-next next",
+      "focal": true
+     }
+    ],
+    "edges": [
+     {
+      "from": "T1",
+      "to": "T2",
+      "label": ""
+     },
+     {
+      "from": "T2",
+      "to": "T3",
+      "label": ""
+     },
+     {
+      "from": "T3",
+      "to": "T4",
+      "label": ""
+     },
+     {
+      "from": "T4",
+      "to": "T5",
+      "label": ""
+     },
+     {
+      "from": "T4",
+      "to": "T6",
+      "label": ""
+     },
+     {
+      "from": "T6",
+      "to": "T7",
+      "label": "handle prepare"
+     },
+     {
+      "from": "T6",
+      "to": "T8",
+      "label": "prepare prepare"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "name": "topology-4",
+  "spec": {
+   "version": "1.0",
+   "family": "flow",
+   "preset": "doc-wide",
+   "title": "Routing a captured note to the right owner and",
+   "subtitle": "Backward edges, skipped cards and labelled branches in one diagram, with long-ish card details as",
+   "source": "synthetic regression fixture",
+   "data": {
+    "nodes": [
+     {
+      "id": "B1",
+      "label": "B1 \u00b7 Next check handle",
+      "detail": "Check next one handle prepare",
+      "focal": false
+     },
+     {
+      "id": "B2",
+      "label": "B2 \u00b7 Prepare handle",
+      "detail": "Application Handle establish",
+      "focal": false
+     },
+     {
+      "id": "B3",
+      "label": "B3 \u00b7 Check establish",
+      "detail": "Prepare; handle one validate",
+      "focal": false
+     },
+     {
+      "id": "B4",
+      "label": "B4 \u00b7 Check check check",
+      "detail": "180s / 10s prepare validate",
+      "focal": false
+     },
+     {
+      "id": "B5",
+      "label": "B5 \u00b7 Prepare handle",
+      "detail": "Handle handle one application",
+      "focal": false
+     },
+     {
+      "id": "B6",
+      "label": "B6 \u00b7 Check one prepare",
+      "detail": "Check next check validate",
+      "focal": true
+     },
+     {
+      "id": "B7",
+      "label": "B7 \u00b7 Prepare validate next",
+      "detail": "Validate handle validate next",
+      "focal": true
+     },
+     {
+      "id": "B8",
+      "label": "B8 \u00b7 Prepare prepare",
+      "detail": "Validate validate next",
+      "focal": false
+     }
+    ],
+    "edges": [
+     {
+      "from": "B1",
+      "to": "B2",
+      "label": ""
+     },
+     {
+      "from": "B2",
+      "to": "B3",
+      "label": ""
+     },
+     {
+      "from": "B3",
+      "to": "B4",
+      "label": ""
+     },
+     {
+      "from": "B4",
+      "to": "B5",
+      "label": "validate"
+     },
+     {
+      "from": "B4",
+      "to": "B6",
+      "label": "no handle"
+     },
+     {
+      "from": "B5",
+      "to": "B6",
+      "label": ""
+     },
+     {
+      "from": "B6",
+      "to": "B7",
+      "label": "validate"
+     },
+     {
+      "from": "B6",
+      "to": "B8",
+      "label": "establish"
+     },
+     {
+      "from": "B7",
+      "to": "B8",
+      "label": ""
+     }
+    ]
+   }
+  }
+ },
+ {
+  "name": "topology-5",
+  "spec": {
+   "version": "1.0",
+   "family": "flow",
+   "preset": "doc-wide",
+   "title": "Reader journey from first open to saved takeaway",
+   "subtitle": "Neutral labels that keep the same shape and text lengths as a real report, including a retry path",
+   "source": "synthetic regression fixture",
+   "data": {
+    "nodes": [
+     {
+      "id": "S1",
+      "label": "S1 \u00b7 Handle handle check",
+      "detail": "\u2264600s or next next",
+      "focal": false
+     },
+     {
+      "id": "S2",
+      "label": "S2 \u00b7 Next check handle",
+      "detail": "Prepare one + prepare check",
+      "focal": false
+     },
+     {
+      "id": "S3",
+      "label": "S3 \u00b7 Check handle",
+      "detail": "Handle next / check / one handle",
+      "focal": false
+     },
+     {
+      "id": "S4",
+      "label": "S4 \u00b7 Check validate check",
+      "detail": "Prepare prepare next handle",
+      "focal": false
+     },
+     {
+      "id": "S5",
+      "label": "S5 \u00b7 Handle one next one",
+      "detail": "Check check + prepare check",
+      "focal": false
+     },
+     {
+      "id": "S6",
+      "label": "S6 \u00b7 Prepare prepare validate",
+      "detail": "Handle vs handle handle",
+      "focal": false
+     },
+     {
+      "id": "S7",
+      "label": "S7 \u00b7 Handle / handle handle",
+      "detail": "Prepare one handle handle",
+      "focal": false
+     }
+    ],
+    "edges": [
+     {
+      "from": "S1",
+      "to": "S2",
+      "label": ""
+     },
+     {
+      "from": "S2",
+      "to": "S3",
+      "label": ""
+     },
+     {
+      "from": "S3",
+      "to": "S4",
+      "label": ""
+     },
+     {
+      "from": "S4",
+      "to": "S5",
+      "label": ""
+     },
+     {
+      "from": "S5",
+      "to": "S6",
+      "label": "handle"
+     },
+     {
+      "from": "S5",
+      "to": "S7",
+      "label": "check"
+     },
+     {
+      "from": "S6",
+      "to": "S7",
+      "label": ""
+     }
+    ]
+   }
+  }
+ },
+ {
+  "name": "topology-6",
+  "spec": {
+   "version": "1.0",
+   "family": "flow",
+   "preset": "doc-wide",
+   "title": "Lifecycle of a shared artifact from draft to",
+   "subtitle": "Every connector is routed on its own track; the subtitle is deliberately close to its maximum",
+   "source": "synthetic regression fixture",
+   "data": {
+    "nodes": [
+     {
+      "id": "I1",
+      "label": "I1 \u00b7 Prepare verification",
+      "detail": "Establish processing next",
+      "focal": false
+     },
+     {
+      "id": "I2",
+      "label": "I2 \u00b7 Validate + prepare",
+      "detail": "One / check / handle / prepare",
+      "focal": false
+     },
+     {
+      "id": "I3",
+      "label": "I3 \u00b7 Validate validate",
+      "detail": "Application OR verification",
+      "focal": false
+     },
+     {
+      "id": "I4",
+      "label": "I4 \u00b7 Check validate",
+      "detail": "Establish validate by next",
+      "focal": true
+     },
+     {
+      "id": "I5",
+      "label": "I5 \u00b7 Validate establish",
+      "detail": "Processing handle one establish",
+      "focal": false
+     },
+     {
+      "id": "I6",
+      "label": "I6 \u00b7 Handle prepare",
+      "detail": "Check, handle, handle check",
+      "focal": false
+     },
+     {
+      "id": "I7",
+      "label": "I7 \u00b7 Processing prepare",
+      "detail": "Validate application / validate",
+      "focal": false
+     },
+     {
+      "id": "I8",
+      "label": "I8 \u00b7 One check prepare",
+      "detail": "Validate to one7",
+      "focal": false
+     }
+    ],
+    "edges": [
+     {
+      "from": "I1",
+      "to": "I2",
+      "label": ""
+     },
+     {
+      "from": "I2",
+      "to": "I3",
+      "label": ""
+     },
+     {
+      "from": "I3",
+      "to": "I4",
+      "label": ""
+     },
+     {
+      "from": "I4",
+      "to": "I5",
+      "label": "prepare"
+     },
+     {
+      "from": "I3",
+      "to": "I6",
+      "label": "handle validate"
+     },
+     {
+      "from": "I5",
+      "to": "I7",
+      "label": ""
+     },
+     {
+      "from": "I5",
+      "to": "I8",
+      "label": ""
+     },
+     {
+      "from": "I6",
+      "to": "I8",
+      "label": ""
+     }
+    ]
+   }
+  }
+ },
+ {
+  "name": "topology-7",
+  "spec": {
+   "version": "1.0",
+   "family": "flow",
+   "preset": "doc-wide",
+   "title": "Speaker preparation from outline to rehearsal",
+   "subtitle": "A realistic title and subtitle so header height and card space are measured the way real reports",
+   "source": "synthetic regression fixture",
+   "data": {
+    "nodes": [
+     {
+      "id": "V1",
+      "label": "V1 \u00b7 Next establish check",
+      "detail": "Handle, prepare, next, prepare",
+      "focal": false
+     },
+     {
+      "id": "V2",
+      "label": "V2 \u00b7 Next processing handle",
+      "detail": "Validate validate vs handle",
+      "focal": true
+     },
+     {
+      "id": "V3",
+      "label": "V3 \u00b7 Check application",
+      "detail": "Prepare check / Check prepare",
+      "focal": false
+     },
+     {
+      "id": "V4",
+      "label": "V4 \u00b7 Handle validate",
+      "detail": "Prepare / in-handle / handle check",
+      "focal": false
+     },
+     {
+      "id": "V5",
+      "label": "V5 \u00b7 Check prepare handle",
+      "detail": "Establish validate validate",
+      "focal": true
+     },
+     {
+      "id": "V6",
+      "label": "V6 \u00b7 Validate handle",
+      "detail": "Handle handle / prepare / next",
+      "focal": false
+     },
+     {
+      "id": "V7",
+      "label": "V7 \u00b7 Prepare prepare",
+      "detail": "Check, next, check one handle",
+      "focal": false
+     }
+    ],
+    "edges": [
+     {
+      "from": "V1",
+      "to": "V2",
+      "label": ""
+     },
+     {
+      "from": "V2",
+      "to": "V3",
+      "label": ""
+     },
+     {
+      "from": "V1",
+      "to": "V4",
+      "label": ""
+     },
+     {
+      "from": "V4",
+      "to": "V5",
+      "label": "no handle"
+     },
+     {
+      "from": "V4",
+      "to": "V6",
+      "label": "validate"
+     },
+     {
+      "from": "V3",
+      "to": "V7",
+      "label": ""
+     },
+     {
+      "from": "V5",
+      "to": "V7",
+      "label": ""
+     },
+     {
+      "from": "V6",
+      "to": "V7",
+      "label": ""
+     }
+    ]
+   }
+  }
+ },
+ {
+  "name": "topology-8",
+  "spec": {
+   "version": "1.0",
+   "family": "flow",
+   "preset": "doc-wide",
+   "title": "Capture, check and publish with a supported retry",
+   "subtitle": "Backward edges, skipped cards and labelled branches in one diagram, with long-ish card details as",
+   "source": "synthetic regression fixture",
+   "data": {
+    "nodes": [
+     {
+      "id": "J1",
+      "label": "J1 \u00b7 Check next",
+      "detail": "Handle/prepare/handle validate",
+      "focal": false
+     },
+     {
+      "id": "J2",
+      "label": "J2 \u00b7 Check one validate check",
+      "detail": "Handle handle one check validate",
+      "focal": false
+     },
+     {
+      "id": "J3",
+      "label": "J3 \u00b7 Check handle prepare",
+      "detail": "Application one validate handle",
+      "focal": false
+     },
+     {
+      "id": "J4",
+      "label": "J4 \u00b7 Handle handle",
+      "detail": "Prepare handle one be prepare",
+      "focal": true
+     },
+     {
+      "id": "J5",
+      "label": "J5 \u00b7 Validate prepare",
+      "detail": "Check-next handle validate",
+      "focal": false
+     },
+     {
+      "id": "J6",
+      "label": "J6 \u00b7 Handle validate",
+      "detail": "Check handle / validate validate",
+      "focal": false
+     },
+     {
+      "id": "J7",
+      "label": "J7 \u00b7 Prepare prepare",
+      "detail": "Handle handle; check one one",
+      "focal": true
+     }
+    ],
+    "edges": [
+     {
+      "from": "J1",
+      "to": "J2",
+      "label": ""
+     },
+     {
+      "from": "J2",
+      "to": "J3",
+      "label": ""
+     },
+     {
+      "from": "J3",
+      "to": "J4",
+      "label": "prepare/next"
+     },
+     {
+      "from": "J3",
+      "to": "J5",
+      "label": "check"
+     },
+     {
+      "from": "J5",
+      "to": "J6",
+      "label": "check validate"
+     },
+     {
+      "from": "J6",
+      "to": "J1",
+      "label": ""
+     },
+     {
+      "from": "J4",
+      "to": "J7",
+      "label": "validate check handle"
+     }
+    ]
+   }
+  }
+ }
+]

@@ -24,6 +24,9 @@ test('the Claude upload is a small, self-contained skill folder ZIP', async () =
   assert.ok(entries.includes('diagrams-for-agents/SKILL.md'));
   assert.ok(entries.includes('diagrams-for-agents/scripts/render.mjs'));
   assert.ok(entries.includes('diagrams-for-agents/scripts/validate-artifact.mjs'));
+  // render.mjs imports these at load time; a package without them cannot render at all.
+  assert.ok(entries.includes('diagrams-for-agents/scripts/fit.mjs'));
+  assert.ok(entries.includes('diagrams-for-agents/scripts/fit-limits.mjs'));
   assert.ok(entries.includes('diagrams-for-agents/references/visual-selection.md'));
 
   const digest = createHash('sha256').update(versioned).digest('hex');
